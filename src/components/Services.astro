@@ -1,0 +1,231 @@
+---
+const services = [
+  {
+    id: "backend",
+    title: "Backend Engineering",
+    tag: "Core Offering",
+    description: "High-performance backend systems built for scale. REST APIs, microservices, database optimization, and robust architecture.",
+    items: ["Custom REST APIs", "Microservices Architecture", "PHP (Spiral/Laravel)", "Database Design", "Auth Systems", "Queue & Caching"]
+  },
+  {
+    id: "fintech",
+    title: "Fintech Development",
+    tag: "Premium",
+    description: "End-to-end fintech infrastructure. Payment systems, wallet platforms, bank integrations, and regulatory compliance.",
+    items: ["Payment Gateways", "Virtual Accounts", "Wallet Infrastructure", "AML/KYC Integration", "Settlement Engines", "Reconciliation"]
+  },
+  {
+    id: "integrations",
+    title: "API Integrations",
+    description: "Connect your systems to banks, payment providers, government APIs, ERPs, and third-party services.",
+    items: ["Banking APIs", "Payment APIs", "Government APIs", "ERP/CRM Integration", "Identity Verification", "Webhook Systems"]
+  },
+  {
+    id: "business-systems",
+    title: "Internal Business Systems",
+    description: "Custom software that replaces spreadsheets. Inventory, HR, payroll, and operations management built for your workflow.",
+    items: ["Inventory Management", "HR & Payroll", "School/Clinic Systems", "Warehouse Management", "Procurement", "Document Management"]
+  },
+  {
+    id: "ai",
+    title: "AI Integration",
+    description: "Practical AI that saves employee time. Document processing, workflow automation, and intelligent search.",
+    items: ["AI Document Processing", "OCR Workflows", "AI Customer Support", "Workflow Automation", "Knowledge Bases", "AI Search & Agents"]
+  },
+  {
+    id: "automation",
+    title: "Process Automation",
+    description: "Eliminate repetitive manual work. Approval flows, invoice processing, onboarding, and scheduled operations.",
+    items: ["Approval Workflows", "Invoice Automation", "Employee Onboarding", "Report Generation", "Data Sync", "Scheduled Jobs"]
+  },
+  {
+    id: "security",
+    title: "Security Consulting",
+    description: "Application security expertise. API reviews, penetration testing, secure SDLC, and OWASP assessments.",
+    items: ["API Security Reviews", "Penetration Testing", "Security Audits", "Threat Modeling", "Auth Review", "OWASP Assessments"]
+  },
+  {
+    id: "devops",
+    title: "DevOps & Deployment",
+    description: "Infrastructure that runs smoothly. Containerization, CI/CD, cloud deployments, and performance monitoring.",
+    items: ["Docker & Kubernetes", "CI/CD Pipelines", "Cloud Deployments", "Nginx & Proxy Setup", "SSL & Security", "Monitoring"]
+  },
+  {
+    id: "consulting",
+    title: "Technical Consulting",
+    description: "Strategic guidance before code. MVP architecture, technology selection, scalability planning, and system redesign.",
+    items: ["MVP Architecture", "Tech Stack Selection", "Scalability Planning", "Product Discovery", "Legacy Modernization", "System Redesign"]
+  },
+  {
+    id: "products",
+    title: "Product Development",
+    description: "Full-stack product engineering. React applications, mobile apps, admin dashboards, and SaaS platforms.",
+    items: ["React Applications", "React Native Apps", "Admin Dashboards", "Customer Portals", "SaaS Products", "Enterprise Software"]
+  },
+  {
+    id: "data",
+    title: "Data Engineering",
+    description: "Structured data collection and processing. Web scraping, ETL pipelines, and competitive intelligence.",
+    items: ["Web Scraping", "Competitor Monitoring", "Pricing Intelligence", "Data Extraction", "ETL Pipelines", "Lead Generation"]
+  },
+  {
+    id: "modernization",
+    title: "Software Modernization",
+    description: "Breathe new life into legacy systems. Migration, API modernization, and architecture refactoring.",
+    items: ["Legacy Migration", "API Modernization", "Database Migration", "Performance Tuning", "Cloud Migration", "Refactoring"]
+  }
+];
+---
+
+<section id="services" class="services">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">What We Do</span>
+      <h2 class="section-title">Engineering Services</h2>
+      <p class="section-subtitle">
+        Specialized expertise across the full software lifecycle — from architecture to deployment
+      </p>
+    </div>
+
+    <div class="services-grid">
+      {services.map((service) => (
+        <div class="service-card" id={service.id}>
+          <div class="service-header">
+            <h3 class="service-title">{service.title}</h3>
+            {service.tag && <span class="service-tag">{service.tag}</span>}
+          </div>
+          <p class="service-description">{service.description}</p>
+          <ul class="service-items">
+            {service.items.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    padding: 6rem 2rem;
+    background: var(--color-bg);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .service-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .service-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .service-tag {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.6rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 4px;
+    color: var(--color-primary-light);
+  }
+
+  .service-description {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .service-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .service-items li {
+    font-size: 0.8rem;
+    color: var(--color-text);
+    padding: 0.35rem 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 6px;
+  }
+
+  @media (max-width: 768px) {
+    .services {
+      padding: 4rem 1.5rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
