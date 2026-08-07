@@ -2,6 +2,15 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
+const categories = [
+  { slug: 'custom-software', name: 'Custom Software' },
+  { slug: 'ai-automation', name: 'AI & Automation' },
+  { slug: 'cybersecurity', name: 'Cybersecurity' },
+  { slug: 'mobile-apps', name: 'Mobile Apps' },
+  { slug: 'api-integrations', name: 'API Integrations' },
+  { slug: 'website-development', name: 'Website Development' },
+];
+
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
@@ -14,14 +23,23 @@ const posts = (await getCollection('blog')).sort(
         <span class="section-label">Insights</span>
         <h1 class="page-title">Blog</h1>
         <p class="page-subtitle">
-          Technical insights on backend engineering, fintech systems, and building software that scales
+          Practical insights for business owners on software, automation, and digital transformation
         </p>
       </header>
+
+      <nav class="category-nav">
+        <a href="/blog" class="category-link active">All</a>
+        {categories.map((cat) => (
+          <a href={`/blog/category/${cat.slug}`} class="category-link">{cat.name}</a>
+        ))}
+      </nav>
 
       <div class="posts-grid">
         {posts.map((post) => (
           <a href={`/blog/${post.id}`} class="post-card">
             <div class="post-meta">
+              <span class="post-category">{categories.find(c => c.slug === post.data.category)?.name}</span>
+              <span class="meta-dot">·</span>
               <time datetime={post.data.publishDate.toISOString()}>
                 {post.data.publishDate.toLocaleDateString('en-US', {
                   year: 'numeric',
@@ -32,11 +50,6 @@ const posts = (await getCollection('blog')).sort(
             </div>
             <h2 class="post-title">{post.data.title}</h2>
             <p class="post-excerpt">{post.data.description}</p>
-            <div class="post-tags">
-              {post.data.tags.slice(0, 3).map((tag) => (
-                <span class="tag">{tag}</span>
-              ))}
-            </div>
             <span class="read-more">Read article &rarr;</span>
           </a>
         ))}
@@ -58,7 +71,7 @@ const posts = (await getCollection('blog')).sort(
 
   .page-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
   }
 
   .section-label {
@@ -86,6 +99,39 @@ const posts = (await getCollection('blog')).sort(
     margin: 0 auto;
   }
 
+  .category-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .category-link {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.2s;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid transparent;
+  }
+
+  .category-link:hover {
+    color: var(--color-text);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .category-link.active {
+    color: var(--color-primary);
+    background: rgba(99, 102, 241, 0.1);
+    border-color: rgba(99, 102, 241, 0.2);
+  }
+
   .posts-grid {
     display: grid;
     gap: 1.5rem;
@@ -108,9 +154,21 @@ const posts = (await getCollection('blog')).sort(
   }
 
   .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     font-size: 0.85rem;
     color: var(--color-text-muted);
     margin-bottom: 0.75rem;
+  }
+
+  .post-category {
+    color: var(--color-primary);
+    font-weight: 500;
+  }
+
+  .meta-dot {
+    opacity: 0.5;
   }
 
   .post-title {
@@ -129,22 +187,6 @@ const posts = (await getCollection('blog')).sort(
     margin-bottom: 1rem;
   }
 
-  .post-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .tag {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.6rem;
-    background: rgba(99, 102, 241, 0.1);
-    border: 1px solid rgba(99, 102, 241, 0.2);
-    border-radius: 4px;
-    color: var(--color-primary-light);
-  }
-
   .read-more {
     font-size: 0.9rem;
     font-weight: 500;
@@ -154,6 +196,15 @@ const posts = (await getCollection('blog')).sort(
   @media (max-width: 768px) {
     .blog-page {
       padding: 7rem 1.5rem 3rem;
+    }
+
+    .category-nav {
+      gap: 0.4rem;
+    }
+
+    .category-link {
+      padding: 0.4rem 0.75rem;
+      font-size: 0.8rem;
     }
 
     .post-card {
