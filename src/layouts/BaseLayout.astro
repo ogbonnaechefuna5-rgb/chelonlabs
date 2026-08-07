@@ -23,8 +23,7 @@ const { title, description = "Chelon Labs - Backend engineering, fintech develop
     <header class="header">
       <nav class="nav container">
         <a href="/" class="logo">
-          <img src="/Chelon-icon.webp" alt="Chelon Labs" class="logo-icon" />
-          <span class="logo-text">Chelon Labs</span>
+          <img src="/Chelon-logo.webp" alt="Chelon Labs" class="logo-img" />
         </a>
         <button class="mobile-menu-btn" aria-label="Toggle menu" aria-expanded="false">
           <span class="hamburger-line"></span>
@@ -109,21 +108,13 @@ const { title, description = "Chelon Labs - Backend engineering, fintech develop
   .logo {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
     text-decoration: none;
   }
 
-  .logo-icon {
-    width: 40px;
-    height: 40px;
+  .logo-img {
+    height: 36px;
+    width: auto;
     object-fit: contain;
-  }
-
-  .logo-text {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 600;
-    font-size: 1.25rem;
-    color: var(--color-text);
   }
 
   .nav-links {
@@ -193,7 +184,7 @@ const { title, description = "Chelon Labs - Backend engineering, fintech develop
 
   @media (max-width: 768px) {
     .nav {
-      padding: 1rem 1.5rem;
+      padding: 0.75rem 1rem;
     }
 
     .mobile-menu-btn {
@@ -271,13 +262,8 @@ const { title, description = "Chelon Labs - Backend engineering, fintech develop
       border-bottom: none;
     }
 
-    .logo-text {
-      font-size: 1.1rem;
-    }
-
-    .logo-icon {
-      width: 32px;
-      height: 32px;
+    .logo-img {
+      height: 28px;
     }
   }
 </style>
