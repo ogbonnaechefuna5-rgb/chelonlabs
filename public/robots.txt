@@ -1,0 +1,8 @@
+# Robots.txt for Chelon Labs
+# https://chelonlabs.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://chelonlabs.com/sitemap-index.xml
