@@ -1,0 +1,1154 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const metrics = [
+  { value: "₦106M+", label: "Monthly transaction volume" },
+  { value: "7,500+", label: "Transactions" },
+  { value: "763K+", label: "Provider API calls" },
+  { value: "6", label: "Financial providers" },
+  { value: "40%", label: "Response time reduction" },
+  { value: "25%", label: "Cloud cost reduction" },
+];
+
+const technologies = [
+  "Java", "PHP", "REST APIs", "gRPC",
+  "PostgreSQL", "Logical Replication",
+  "Docker", "Kubernetes", "Oracle Cloud",
+  "GitHub Actions", "Argo CD",
+  "Prometheus", "Grafana", "Next.js"
+];
+---
+
+<BaseLayout 
+  title="Payment Infrastructure for a Nigerian Fintech | Chelon Labs" 
+  description="Backend engineering case study: merchant applications, distributed authentication, financial integrations, and PostgreSQL logical replication for a production fintech platform."
+>
+  <article class="case-study">
+    <header class="case-header">
+      <div class="container">
+        <a href="/work" class="back-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          Back to Work
+        </a>
+        
+        <div class="case-meta">
+          <span class="tag">Backend Engineering</span>
+          <span class="tag">Payments</span>
+          <span class="tag">Distributed Systems</span>
+          <span class="tag">Merchant Applications</span>
+        </div>
+        
+        <h1>Payment Infrastructure & Merchant Platform for a Nigerian Fintech</h1>
+        
+        <div class="case-info">
+          <div class="info-item">
+            <span class="info-label">Role</span>
+            <span class="info-value">Backend Developer</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Environment</span>
+            <span class="info-value">Production fintech platform</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Status</span>
+            <span class="info-value">Merchant applications in development</span>
+          </div>
+        </div>
+
+        <div class="confidentiality-note">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/></svg>
+          <span>Company and internal implementation details have been generalized where necessary.</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="case-section overview">
+      <div class="container">
+        <h2>Overview</h2>
+        <div class="content-block">
+          <p>
+            I was part of the engineering team that built a Nigerian fintech platform from the ground up 
+            as a PHP application before the backend was later decomposed into a microservices architecture.
+          </p>
+          <p>
+            Following the transition to microservices, I continued maintaining and extending the platform 
+            while taking ownership of new Java-based merchant applications. My work spanned backend development, 
+            financial integrations, authentication and authorization, distributed-system communication, 
+            data replication, security, and development infrastructure.
+          </p>
+          <p>
+            The wider platform supports <strong>₦106M+ in monthly transaction volume across 7,500+ transactions</strong>, 
+            with integrations across external financial services generating <strong>763K+ provider API calls</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section challenge">
+      <div class="container">
+        <h2>The Challenge</h2>
+        <div class="content-block">
+          <p>
+            The platform evolved from a monolithic backend into a distributed microservices architecture 
+            as its functionality and operational requirements grew.
+          </p>
+          <p>
+            This created a different class of engineering problems.
+          </p>
+          <p>
+            The new merchant applications needed to interact with multiple backend services while presenting 
+            merchants with a consistent experience across the web dashboard and POS terminals.
+          </p>
+          <p>
+            One of the most important challenges I worked on was <strong>merchant identity management 
+            across different onboarding paths and distributed services</strong>.
+          </p>
+
+          <div class="highlight-box">
+            <h3>Merchant onboarding could happen through two paths</h3>
+            <div class="two-col">
+              <div class="col">
+                <h4>Regular onboarding / account upgrade</h4>
+                <p>A merchant could originate from the normal user onboarding flow and subsequently be upgraded into a merchant.</p>
+              </div>
+              <div class="col">
+                <h4>TID upload</h4>
+                <p>Merchant information could also be created through a terminal/TID-based onboarding process.</p>
+              </div>
+            </div>
+          </div>
+
+          <p>
+            Despite having different onboarding paths, both types of merchants needed to use the 
+            <strong>same credentials</strong> to access:
+          </p>
+          <ul>
+            <li>the external merchant dashboard</li>
+            <li>the POS terminals assigned to them</li>
+          </ul>
+          <p>
+            The challenge was that merchant-facing applications and POS functionality were backed by 
+            the microservices platform. Authentication therefore couldn't simply live independently 
+            inside each application.
+          </p>
+          <p>
+            We needed a <strong>centralized authentication and authorization model</strong> that could 
+            establish one merchant identity across the distributed system.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section contribution">
+      <div class="container">
+        <h2>My Contribution</h2>
+
+        <div class="contribution-item">
+          <div class="contribution-number">01</div>
+          <div class="contribution-content">
+            <h3>Continued development through the architectural transition</h3>
+            <p>
+              I was part of the team that built the original platform from the ground up before it 
+              was broken down into microservices.
+            </p>
+            <p>
+              After the migration, I continued maintaining the distributed backend and extending 
+              the system with new services and applications.
+            </p>
+            <p>
+              This gave me experience working across both sides of the architectural transition:
+            </p>
+            <div class="transition-visual">
+              <span>Monolithic application</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              <span>Distributed microservices</span>
+            </div>
+            <p>
+              That distinction is important because the work wasn't simply greenfield microservices 
+              development; it involved understanding an existing business system while continuing 
+              to deliver functionality during architectural change.
+            </p>
+          </div>
+        </div>
+
+        <div class="contribution-item">
+          <div class="contribution-number">02</div>
+          <div class="contribution-content">
+            <h3>Built the Merchant and Super Merchant applications</h3>
+            <p>
+              I independently built the backend services for the <strong>Merchant</strong> and 
+              <strong>Super Merchant</strong> applications using Java.
+            </p>
+            <p>These applications provide different operational capabilities:</p>
+            <div class="app-cards">
+              <div class="app-card">
+                <h4>Merchant application</h4>
+                <p>Designed for individual merchants to interact with their account and operational information.</p>
+              </div>
+              <div class="app-card">
+                <h4>Super Merchant application</h4>
+                <p>Designed for higher-level merchant/aggregator operations and management across multiple merchants.</p>
+              </div>
+            </div>
+            <p>
+              I was responsible for the backend implementation of these applications, including 
+              their integration with the existing microservices ecosystem.
+            </p>
+          </div>
+        </div>
+
+        <div class="contribution-item">
+          <div class="contribution-number">03</div>
+          <div class="contribution-content">
+            <h3>Centralized merchant authentication and authorization</h3>
+            <p>
+              The most interesting problem was ensuring that merchants had a consistent identity 
+              across the platform despite multiple onboarding mechanisms and distributed services.
+            </p>
+            <p>
+              Rather than allowing each application to maintain its own independent authentication state, 
+              I designed the merchant applications around the existing microservices authentication model 
+              so that authentication and authorization could be handled centrally.
+            </p>
+            
+            <div class="architecture-diagram">
+              <pre>{`                   Merchant Identity
+                         │
+              Central Authentication
+                         │
+          ┌──────────────┴──────────────┐
+          │                             │
+          ▼                             ▼
+   Merchant Dashboard              POS Terminal
+          │                             │
+          └──────────────┬──────────────┘
+                         ▼
+                 Microservices
+              Authorization Layer`}</pre>
+            </div>
+
+            <p>
+              This allowed the same merchant credentials to be used across the merchant-facing 
+              systems while keeping authorization under a centralized backend model.
+            </p>
+
+            <div class="why-box">
+              <h4>Why this mattered</h4>
+              <p>Without a consistent identity model, separate onboarding paths could result in:</p>
+              <ul>
+                <li>duplicated identities</li>
+                <li>inconsistent credentials</li>
+                <li>conflicting authorization rules</li>
+                <li>difficult account management</li>
+                <li>disconnected dashboard and POS access</li>
+              </ul>
+              <p>
+                The solution instead treated the merchant as a <strong>single platform identity</strong>, 
+                regardless of how the merchant entered the system.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contribution-item">
+          <div class="contribution-number">04</div>
+          <div class="contribution-content">
+            <h3>Financial integrations</h3>
+            <p>
+              I worked on integrations with <strong>banks and NPS-related services</strong> to 
+              support financial operations within the platform.
+            </p>
+            <p>
+              These integrations required the backend to communicate with external financial 
+              systems while keeping provider-specific behavior isolated from the rest of the application.
+            </p>
+            <p>
+              The work contributed to a platform supporting transaction processing and financial 
+              operations at scale. The broader platform currently processes <strong>₦106M+ in 
+              monthly transaction value across 7,500+ transactions</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="contribution-item">
+          <div class="contribution-number">05</div>
+          <div class="contribution-content">
+            <h3>Near-real-time data distribution using PostgreSQL logical replication</h3>
+            <p>
+              The merchant and super merchant applications needed access to information originating 
+              from multiple microservices.
+            </p>
+            <p>
+              Rather than making every dashboard request travel through several services for 
+              read-heavy operations, I used <strong>PostgreSQL logical replication</strong> to 
+              make selected data available to the applications more efficiently.
+            </p>
+
+            <div class="architecture-diagram">
+              <pre>{` Microservice Database
+         │
+         │ Logical Replication
+         ▼
+   Read-Optimized Data
+         │
+         ▼
+ Merchant / Super Merchant APIs
+         │
+         ▼
+      Dashboards`}</pre>
+            </div>
+
+            <p>
+              This allowed selected data to be transferred from the source services into a 
+              database optimized for consumption by the merchant applications.
+            </p>
+            <p>
+              The approach was particularly useful for dashboard-oriented workloads where fast 
+              access to frequently viewed information was more important than repeatedly querying 
+              operational services.
+            </p>
+          </div>
+        </div>
+
+        <div class="contribution-item">
+          <div class="contribution-number">06</div>
+          <div class="contribution-content">
+            <h3>Development infrastructure with Oracle Cloud</h3>
+            <p>
+              Oracle Cloud was not the company's production infrastructure in this context.
+            </p>
+            <p>
+              I used <strong>Oracle Cloud personally as a development environment</strong> to run 
+              containerized workloads that would otherwise place significant load on my local machine.
+            </p>
+            <p>
+              Running multiple services and containers locally caused my development machine to 
+              lag and overheat, so I offloaded container workloads to cloud compute resources 
+              while retaining my local IDE-based development workflow.
+            </p>
+
+            <div class="architecture-diagram">
+              <pre>{`             Local Development Machine
+                       │
+                   IDE / Code
+                       │
+                       ▼
+                Remote Dev Host
+              (Oracle Cloud)
+                       │
+             ┌─────────┼─────────┐
+             ▼         ▼         ▼
+          Service A Service B  Database
+          Container Container   Container`}</pre>
+            </div>
+
+            <p>
+              This separated <strong>development and execution resources</strong>, allowing me 
+              to work against a multi-service environment without putting the entire workload 
+              on my local computer.
+            </p>
+            <p>
+              I also gained practical experience with cloud compute, networking, storage, and 
+              containerized development as part of this setup.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section architecture">
+      <div class="container">
+        <h2>Architecture</h2>
+        <div class="content-block">
+          <p>The platform evolved through two major architectural stages.</p>
+          
+          <div class="stage-cards">
+            <div class="stage-card">
+              <h4>Stage 1 — Monolithic foundation</h4>
+              <p>The original system was built as a PHP application, with core business functionality operating inside a single backend.</p>
+            </div>
+            <div class="stage-card">
+              <h4>Stage 2 — Microservices architecture</h4>
+              <p>The system was subsequently decomposed into independently managed services.</p>
+            </div>
+          </div>
+
+          <div class="architecture-diagram large">
+            <pre>{`                  Client Applications
+                         │
+            ┌────────────┼────────────┐
+            │            │            │
+            ▼            ▼            ▼
+       Merchant      Super Merchant   POS
+       Dashboard       Dashboard     Devices
+            │            │            │
+            └────────────┼────────────┘
+                         ▼
+                 Microservices Layer
+                         │
+       ┌─────────────────┼─────────────────┐
+       │                 │                 │
+       ▼                 ▼                 ▼
+ Transactions       Merchant/Auth      Financial
+   & Operations        Services        Integrations
+       │                 │                 │
+       └─────────────────┼─────────────────┘
+                         ▼
+                PostgreSQL Databases
+                         │
+                  Logical Replication
+                         ▼
+                Application Read Layer`}</pre>
+          </div>
+
+          <p class="architecture-note">
+            <em>Architecture details have been generalized to protect proprietary implementation information.</em>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section results">
+      <div class="container">
+        <h2>Results & Scale</h2>
+        <p class="results-intro">
+          The work formed part of a platform currently operating at meaningful financial and API scale:
+        </p>
+        <div class="metrics-grid">
+          {metrics.map((metric) => (
+            <div class="metric-card">
+              <span class="metric-value">{metric.value}</span>
+              <span class="metric-label">{metric.label}</span>
+            </div>
+          ))}
+        </div>
+        <p class="results-note">
+          The broader platform metrics are reflected in my professional experience.
+        </p>
+      </div>
+    </section>
+
+    <section class="case-section takeaways">
+      <div class="container">
+        <h2>Engineering Takeaways</h2>
+        
+        <div class="takeaway-item">
+          <h3>Distributed systems change the authentication problem</h3>
+          <p>
+            Moving functionality into microservices does not automatically solve identity management.
+          </p>
+          <p>
+            When multiple applications and devices need to represent the same business entity, 
+            authentication and authorization have to remain consistent across service boundaries.
+          </p>
+          <p>
+            In this case, merchant identity needed to work across different onboarding paths, 
+            the external dashboard, and POS access.
+          </p>
+        </div>
+
+        <div class="takeaway-item">
+          <h3>Read-heavy applications don't always need to query operational services directly</h3>
+          <p>
+            Merchant dashboards often need large amounts of data for reporting and operational visibility.
+          </p>
+          <p>
+            Using logical replication provided a way to make selected data available closer to the 
+            consuming applications without forcing every dashboard operation through transactional services.
+          </p>
+        </div>
+
+        <div class="takeaway-item">
+          <h3>Architecture evolution requires continuity</h3>
+          <p>
+            The system wasn't created as microservices from the beginning.
+          </p>
+          <p>
+            It evolved from a PHP monolith into a distributed platform.
+          </p>
+          <p>
+            Working through that transition taught me how architectural modernization differs from 
+            starting a greenfield system: existing behavior, data, integrations, and business 
+            operations still have to keep working while the architecture changes underneath them.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section technology">
+      <div class="container">
+        <h2>Technology</h2>
+        <div class="tech-categories">
+          <div class="tech-category">
+            <h4>Backend</h4>
+            <p>Java, PHP legacy systems, REST APIs, gRPC</p>
+          </div>
+          <div class="tech-category">
+            <h4>Databases</h4>
+            <p>PostgreSQL</p>
+          </div>
+          <div class="tech-category">
+            <h4>Distributed Systems</h4>
+            <p>Microservices, logical replication</p>
+          </div>
+          <div class="tech-category">
+            <h4>Infrastructure</h4>
+            <p>Docker, Kubernetes, Oracle Cloud</p>
+          </div>
+          <div class="tech-category">
+            <h4>CI/CD</h4>
+            <p>GitHub Actions, Argo CD</p>
+          </div>
+          <div class="tech-category">
+            <h4>Observability</h4>
+            <p>Prometheus, Grafana</p>
+          </div>
+          <div class="tech-category">
+            <h4>Frontend contribution</h4>
+            <p>Next.js</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section role-summary">
+      <div class="container">
+        <h2>My Role at a Glance</h2>
+        <div class="role-grid">
+          <div class="role-item">
+            <h4>Built</h4>
+            <p>Core backend components, merchant applications, financial integrations</p>
+          </div>
+          <div class="role-item">
+            <h4>Owned</h4>
+            <p>Merchant and Super Merchant backend services</p>
+          </div>
+          <div class="role-item">
+            <h4>Solved</h4>
+            <p>Cross-system merchant authentication and authorization</p>
+          </div>
+          <div class="role-item">
+            <h4>Worked with</h4>
+            <p>Microservices, financial integrations, logical replication, cloud-based development infrastructure</p>
+          </div>
+          <div class="role-item">
+            <h4>Environment</h4>
+            <p>Production fintech platform</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Building a transaction-heavy product?</h2>
+          <p>
+            Chelon Labs helps fintechs and growing technology companies build and modernize 
+            backend systems, financial integrations, and cloud infrastructure.
+          </p>
+          <a href="/#contact" class="btn btn-primary">Discuss your project</a>
+        </div>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .case-study {
+    background: var(--color-bg);
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Header */
+  .case-header {
+    padding: 10rem 0 4rem;
+    background: var(--color-bg-dark);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--color-primary);
+  }
+
+  .case-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.75rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    border-radius: 4px;
+    color: var(--color-primary-light);
+  }
+
+  .case-header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+
+  .case-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+  }
+
+  .info-value {
+    font-size: 1rem;
+    color: var(--color-text);
+  }
+
+  .confidentiality-note {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .confidentiality-note svg {
+    flex-shrink: 0;
+    color: var(--color-primary);
+  }
+
+  /* Sections */
+  .case-section {
+    padding: 4rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .case-section h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+  }
+
+  .content-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .content-block p {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+
+  .content-block strong {
+    color: var(--color-text);
+  }
+
+  .content-block ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .content-block ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+
+  .content-block ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary);
+    border-radius: 50%;
+  }
+
+  /* Highlight box */
+  .highlight-box {
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 3px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .highlight-box h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .two-col h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .two-col p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  /* Contributions */
+  .contribution-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  }
+
+  .contribution-item:last-child {
+    border-bottom: none;
+  }
+
+  .contribution-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    background: rgba(99, 102, 241, 0.1);
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    height: fit-content;
+    flex-shrink: 0;
+  }
+
+  .contribution-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contribution-content h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .contribution-content p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+
+  .contribution-content strong {
+    color: var(--color-text);
+  }
+
+  /* Transition visual */
+  .transition-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin: 0.5rem 0;
+  }
+
+  .transition-visual span {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  .transition-visual svg {
+    color: var(--color-primary);
+  }
+
+  /* App cards */
+  .app-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  .app-card {
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+
+  .app-card h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .app-card p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  /* Architecture diagrams */
+  .architecture-diagram {
+    background: var(--color-bg-dark);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+  }
+
+  .architecture-diagram pre {
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin: 0;
+    white-space: pre;
+  }
+
+  .architecture-diagram.large pre {
+    font-size: 0.75rem;
+  }
+
+  /* Why box */
+  .why-box {
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .why-box h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .why-box p {
+    font-size: 0.95rem;
+  }
+
+  .why-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.75rem 0;
+  }
+
+  .why-box ul li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+
+  .why-box ul li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+  }
+
+  /* Stage cards */
+  .stage-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .stage-card {
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+
+  .stage-card h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .stage-card p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .architecture-note {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  /* Results */
+  .results-intro {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .metric-card {
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .metric-value {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .metric-label {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .results-note {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  /* Takeaways */
+  .takeaway-item {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  }
+
+  .takeaway-item:last-child {
+    border-bottom: none;
+  }
+
+  .takeaway-item h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .takeaway-item p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 0.75rem;
+  }
+
+  .takeaway-item p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Technology */
+  .tech-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .tech-category h4 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .tech-category p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  /* Role summary */
+  .role-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .role-item {
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+
+  .role-item h4 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .role-item p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  /* CTA */
+  .case-cta {
+    padding: 6rem 0;
+    background: var(--color-bg-dark);
+    border-bottom: none;
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(99, 102, 241, 0.4);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .case-header {
+      padding: 8rem 0 3rem;
+    }
+
+    .case-section {
+      padding: 3rem 0;
+    }
+
+    .two-col,
+    .app-cards,
+    .stage-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .metrics-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contribution-item {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .case-info {
+      gap: 1rem;
+    }
+  }
+</style>

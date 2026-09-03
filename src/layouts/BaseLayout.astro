@@ -4,7 +4,10 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Chelon Labs - Backend engineering, fintech development, and enterprise software solutions" } = Astro.props;
+const { title, description = "Specialized backend engineering for fintech startups and technology companies. Payment systems, financial API integrations, cloud infrastructure, and backend modernization." } = Astro.props;
+
+const siteUrl = "https://chelonlabs.com";
+const ogImage = "/og-image.png";
 ---
 
 <!doctype html>
@@ -13,11 +16,41 @@ const { title, description = "Chelon Labs - Backend engineering, fintech develop
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    
     <link rel="icon" type="image/webp" href="/Chelon-icon.webp" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     <title>{title}</title>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "Chelon Labs",
+      "description": "Backend engineering for fintech and technology companies",
+      "url": "https://chelonlabs.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Ogbonna Emmanuel Echefunachukwu"
+      },
+      "serviceType": ["Backend Development", "Fintech Development", "API Integration", "Cloud Infrastructure"]
+    }
+    </script>
   </head>
   <body>
     <header class="header">
@@ -32,9 +65,9 @@ const { title, description = "Chelon Labs - Backend engineering, fintech develop
         </button>
         <ul class="nav-links">
           <li><a href="/#services">Services</a></li>
-          <li><a href="/#industries">Industries</a></li>
+          <li><a href="/work">Work</a></li>
           <li><a href="/#about">About</a></li>
-          <li><a href="/blog">Blog</a></li>
+          <li><a href="/blog">Insights</a></li>
           <li><a href="/#contact" class="nav-cta">Contact</a></li>
         </ul>
       </nav>
@@ -70,7 +103,22 @@ const { title, description = "Chelon Labs - Backend engineering, fintech develop
           <div class="footer-brand">
             <img src="/Chelon-logo.webp" alt="Chelon Labs" class="footer-logo" />
           </div>
-          <p class="footer-tagline">Building the future, one line at a time.</p>
+          <p class="footer-tagline">Backend engineering for companies that can't afford downtime.</p>
+          <div class="footer-links">
+            <a href="https://www.linkedin.com/in/ogbonna-echefunachukwu-76a100231/" target="_blank" rel="noopener noreferrer" class="footer-social" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="mailto:hello@chelonlabs.com" class="footer-social" aria-label="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-nav">
+          <a href="/#services">Services</a>
+          <a href="/work">Work</a>
+          <a href="/#about">About</a>
+          <a href="/blog">Insights</a>
+          <a href="/#contact">Contact</a>
         </div>
         <div class="footer-bottom">
           <p>&copy; {new Date().getFullYear()} Chelon Labs. All rights reserved.</p>
@@ -165,12 +213,57 @@ const { title, description = "Chelon Labs - Backend engineering, fintech develop
   .footer-tagline {
     color: var(--color-text-muted);
     font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .footer-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    color: var(--color-text-muted);
+    transition: all 0.2s;
+  }
+
+  .footer-social:hover {
+    color: var(--color-primary);
+    border-color: rgba(99, 102, 241, 0.3);
+    background: rgba(99, 102, 241, 0.1);
+  }
+
+  .footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    flex-wrap: wrap;
+  }
+
+  .footer-nav a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+  }
+
+  .footer-nav a:hover {
+    color: var(--color-primary);
   }
 
   .footer-bottom {
     text-align: center;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .footer-bottom p {

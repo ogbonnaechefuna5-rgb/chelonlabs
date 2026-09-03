@@ -1,81 +1,110 @@
 ---
-const expertise = [
-  "Backend Architecture",
-  "Fintech Systems", 
-  "API Design",
-  "Security Engineering",
-  "Database Optimization",
-  "CI/CD Pipelines",
-  "Cloud Infrastructure",
-  "System Integration"
+const techStack = [
+  "Java", "Go", "Node.js", "PHP/Spiral", "NestJS", "Fastify",
+  "PostgreSQL", "Redis", "MongoDB",
+  "Docker", "Kubernetes", "AWS", "GCP",
+  "React", "React Native", "TypeScript"
 ];
 
-const techStack = [
-  "PHP", "Laravel", "Spiral", "Node.js", "Python", "Go",
-  "React", "React Native", "TypeScript",
-  "PostgreSQL", "MySQL", "Redis", "MongoDB",
-  "Docker", "Kubernetes", "AWS", "Nginx"
-];
+const linkedinUrl = "https://www.linkedin.com/in/ogbonna-echefunachukwu-76a100231/";
 ---
 
 <section id="about" class="about">
   <div class="container">
     <div class="about-grid">
       <div class="about-content">
-        <span class="section-label">About Us</span>
-        <h2 class="section-title">Engineering Excellence for Business-Critical Systems</h2>
-        <p class="about-text">
-          Chelon Labs is a specialized software engineering agency. We focus on backend systems, 
-          fintech infrastructure, and enterprise integrations — the complex technical work where 
-          reliability and security matter most.
-        </p>
-        <p class="about-text">
-          Our team brings deep experience from building payment systems, banking integrations, 
-          and scalable architectures. We've seen what breaks at scale and know how to build 
-          systems that don't.
-        </p>
+        <span class="section-label">About</span>
+        <h2 class="section-title">Built on Production Fintech Experience</h2>
         
-        <div class="differentiators">
-          <div class="diff-item">
-            <span class="diff-number">01</span>
-            <div>
-              <h4>Fintech Experience</h4>
-              <p>Real-world experience with payment gateways, virtual accounts, settlements, and regulatory compliance.</p>
+        <div class="founder-intro">
+          <div class="founder-photo">
+            <div class="photo-placeholder">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             </div>
           </div>
-          <div class="diff-item">
-            <span class="diff-number">02</span>
-            <div>
-              <h4>Security-First Approach</h4>
-              <p>CISO-level thinking baked into every project. Threat modeling, secure architecture, and code review.</p>
-            </div>
+          <div class="founder-details">
+            <h3 class="founder-name">Ogbonna Emmanuel Echefunachukwu</h3>
+            <p class="founder-role">Founder & Backend Engineer</p>
+            <a href={linkedinUrl} target="_blank" rel="noopener noreferrer" class="linkedin-link">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn
+            </a>
           </div>
-          <div class="diff-item">
-            <span class="diff-number">03</span>
-            <div>
-              <h4>Systems Thinking</h4>
-              <p>We understand how your software fits into the broader business. Integrations, workflows, and scale.</p>
-            </div>
-          </div>
+        </div>
+
+        <div class="about-story">
+          <p>
+            I founded Chelon Labs to help growing technology companies solve the backend, 
+            integration, and infrastructure problems that become expensive as products scale.
+          </p>
+          <p>
+            Before starting this studio, I spent years building backend infrastructure for a 
+            Nigerian fintech company processing ₦106M+ in monthly transactions. I've integrated 
+            6 different payment providers, built transaction systems handling thousands of daily 
+            payments, and optimized cloud infrastructure to cut costs by 25% while improving 
+            response times by 40%.
+          </p>
+          <p>
+            I've built the systems that most agencies only diagram — payment gateways, 
+            multi-provider transaction routing, settlement workflows, and the cloud infrastructure 
+            that keeps them running at scale.
+          </p>
+          <p>
+            When you work with Chelon Labs, you get direct access to senior engineering 
+            expertise focused entirely on your backend and infrastructure challenges. No layers 
+            of account managers. No handoffs to junior developers.
+          </p>
         </div>
       </div>
 
       <div class="about-sidebar">
-        <div class="expertise-card">
-          <h3 class="card-title">Core Expertise</h3>
-          <div class="expertise-grid">
-            {expertise.map((item) => (
-              <span class="expertise-tag">{item}</span>
-            ))}
-          </div>
-        </div>
-
         <div class="tech-card">
           <h3 class="card-title">Technology Stack</h3>
           <div class="tech-grid">
             {techStack.map((tech) => (
               <span class="tech-tag">{tech}</span>
             ))}
+          </div>
+        </div>
+
+        <div class="process-card">
+          <h3 class="card-title">How We Work</h3>
+          <div class="process-steps">
+            <div class="process-step">
+              <span class="step-number">01</span>
+              <div>
+                <h4>Understand</h4>
+                <p>Requirements, existing architecture, constraints</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="step-number">02</span>
+              <div>
+                <h4>Design</h4>
+                <p>System architecture, API contracts, integration approach</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="step-number">03</span>
+              <div>
+                <h4>Build</h4>
+                <p>Implementation, testing, documentation</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="step-number">04</span>
+              <div>
+                <h4>Deploy</h4>
+                <p>Infrastructure, CI/CD, monitoring</p>
+              </div>
+            </div>
+            <div class="process-step">
+              <span class="step-number">05</span>
+              <div>
+                <h4>Operate</h4>
+                <p>Observability, performance, ongoing improvements</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -116,53 +145,86 @@ const techStack = [
     font-size: clamp(1.75rem, 3.5vw, 2.25rem);
     font-weight: 700;
     color: var(--color-text);
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
     line-height: 1.2;
   }
 
-  .about-text {
-    font-size: 1rem;
-    color: var(--color-text-muted);
-    line-height: 1.8;
-    margin-bottom: 1.25rem;
-  }
-
-  .differentiators {
-    margin-top: 2rem;
+  .founder-intro {
     display: flex;
-    flex-direction: column;
     gap: 1.5rem;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
   }
 
-  .diff-item {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-  }
-
-  .diff-number {
-    font-family: 'Space Grotesk', sans-serif;
-    font-weight: 700;
-    font-size: 0.8rem;
-    color: var(--color-primary);
-    background: rgba(99, 102, 241, 0.1);
-    padding: 0.4rem 0.65rem;
-    border-radius: 6px;
+  .founder-photo {
     flex-shrink: 0;
   }
 
-  .diff-item h4 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-text);
-    margin-bottom: 0.25rem;
+  .photo-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+    border: 2px solid rgba(99, 102, 241, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
   }
 
-  .diff-item p {
+  .founder-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .founder-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .founder-role {
     font-size: 0.9rem;
     color: var(--color-text-muted);
-    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+
+  .linkedin-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .linkedin-link:hover {
+    opacity: 0.8;
+  }
+
+  .about-story {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .about-story p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+
+  .about-story p:first-child {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    font-weight: 500;
   }
 
   .about-sidebar {
@@ -171,8 +233,8 @@ const techStack = [
     gap: 1.5rem;
   }
 
-  .expertise-card,
-  .tech-card {
+  .tech-card,
+  .process-card {
     background: var(--color-bg-card);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 16px;
@@ -187,21 +249,10 @@ const techStack = [
     margin-bottom: 1.25rem;
   }
 
-  .expertise-grid,
   .tech-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-  }
-
-  .expertise-tag {
-    padding: 0.4rem 0.85rem;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
-    border: 1px solid rgba(99, 102, 241, 0.25);
-    border-radius: 6px;
-    font-size: 0.85rem;
-    color: var(--color-text);
-    font-weight: 500;
   }
 
   .tech-tag {
@@ -211,6 +262,43 @@ const techStack = [
     border-radius: 6px;
     font-size: 0.8rem;
     color: var(--color-text-muted);
+  }
+
+  .process-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .process-step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .step-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: var(--color-primary);
+    background: rgba(99, 102, 241, 0.1);
+    padding: 0.35rem 0.5rem;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  .process-step h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.15rem;
+  }
+
+  .process-step p {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
   }
 
   @media (max-width: 900px) {
@@ -225,8 +313,18 @@ const techStack = [
       padding: 3rem 1rem;
     }
 
-    .expertise-card,
-    .tech-card {
+    .founder-intro {
+      flex-direction: column;
+      text-align: center;
+      padding: 1.25rem;
+    }
+
+    .founder-details {
+      align-items: center;
+    }
+
+    .tech-card,
+    .process-card {
       padding: 1.25rem;
     }
   }

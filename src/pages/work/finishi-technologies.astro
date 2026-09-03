@@ -1,0 +1,1229 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const capabilities = [
+  { value: "5", label: "Integrated services" },
+  { value: "20+", label: "API endpoint groups" },
+  { value: "3", label: "AI providers" },
+  { value: "Full-stack", label: "TypeScript" },
+];
+
+const frontendStack = [
+  { service: "User App", framework: "React 18 + Vite", ui: "Radix UI, Tailwind CSS, Recharts, Motion", features: "Learning experience, progress tracking, AI tutor" },
+  { service: "Admin Dashboard", framework: "React 18 + Vite", ui: "Radix UI, Tailwind CSS, TipTap Editor", features: "Content management, analytics, user administration" },
+  { service: "Waitlist", framework: "Remix 3.0", ui: "Custom CSS-in-JS", features: "Marketing landing page, impression tracking" },
+];
+
+const backendStack = [
+  { component: "API Server", technology: "Fastify 5", purpose: "High-performance REST API" },
+  { component: "Database", technology: "Supabase (PostgreSQL)", purpose: "Data persistence, real-time features, auth" },
+  { component: "AI Integration", technology: "Gemini, Groq, OpenRouter", purpose: "Multi-provider AI with fallback chain" },
+  { component: "Email", technology: "Resend", purpose: "Transactional emails with Handlebars templates" },
+  { component: "Deployment", technology: "Google Cloud Run", purpose: "Containerized, auto-scaling infrastructure" },
+  { component: "CI/CD", technology: "GitHub Actions", purpose: "Automated build and deployment pipelines" },
+];
+---
+
+<BaseLayout 
+  title="Finishi: AI-Powered Learning Platform | Chelon Labs" 
+  description="Case study: Multi-service EdTech platform with AI tutoring, personalized learning paths, and cloud-native architecture built with React, Fastify, and Google Cloud Run."
+>
+  <article class="case-study">
+    <header class="case-header">
+      <div class="container">
+        <a href="/work" class="back-link">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          Back to Work
+        </a>
+        
+        <div class="case-meta">
+          <span class="tag">Full-Stack Development</span>
+          <span class="tag">AI Integration</span>
+          <span class="tag">EdTech</span>
+          <span class="tag">Cloud-Native</span>
+        </div>
+        
+        <h1>Finishi: AI-Powered Learning Platform</h1>
+        
+        <div class="case-info">
+          <div class="info-item">
+            <span class="info-label">Role</span>
+            <span class="info-value">CTO & Co-founder</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Type</span>
+            <span class="info-value">Product Development</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Status</span>
+            <span class="info-value">Active Development</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="case-section summary">
+      <div class="container">
+        <h2>Executive Summary</h2>
+        <div class="content-block">
+          <p>
+            <strong>Finishi</strong> is a comprehensive AI-powered learning platform that transforms scattered 
+            self-learning into structured, goal-oriented educational journeys. The platform combines personalized 
+            learning paths, AI tutoring, progress tracking, and accountability features to help learners complete 
+            what they start.
+          </p>
+          <p>
+            The project encompasses five interconnected services: a learner-facing application, an administrative 
+            dashboard, a shared API backend, a marketing waitlist site, and supporting infrastructure—all built 
+            with modern, scalable technologies.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section challenge">
+      <div class="container">
+        <h2>The Challenge</h2>
+        <div class="content-block">
+          <p>
+            Self-directed learners face a common problem: abundant resources but no structure. 
+            Courses, tutorials, and content pile up, leading to:
+          </p>
+          
+          <div class="challenge-cards">
+            <div class="challenge-card">
+              <h4>Content overwhelm</h4>
+              <p>Too many options with no clear direction</p>
+            </div>
+            <div class="challenge-card">
+              <h4>Lack of accountability</h4>
+              <p>No streaks, reminders, or progress tracking</p>
+            </div>
+            <div class="challenge-card">
+              <h4>Incomplete learning</h4>
+              <p>Starting many courses but finishing few</p>
+            </div>
+          </div>
+
+          <p>
+            Finishi needed to solve these problems while delivering a polished experience across 
+            multiple user roles (learners and administrators) with AI-powered personalization at its core.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section architecture">
+      <div class="container">
+        <h2>Solution Architecture</h2>
+        <div class="content-block">
+          <h3>Multi-Service Platform Design</h3>
+          <p>We architected Finishi as a distributed system with clear separation of concerns:</p>
+          
+          <div class="architecture-diagram">
+            <pre>{`┌─────────────────────────────────────────────────────────────────┐
+│                        FINISHI PLATFORM                         │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│   ┌──────────────┐  ┌──────────────┐  ┌──────────────────────┐ │
+│   │   Waitlist   │  │     User     │  │       Admin          │ │
+│   │    (Remix)   │  │    (React)   │  │      (React)         │ │
+│   │              │  │              │  │                      │ │
+│   │  Marketing   │  │   Learning   │  │   Content & User     │ │
+│   │  & Signups   │  │  Experience  │  │    Management        │ │
+│   └──────┬───────┘  └──────┬───────┘  └──────────┬───────────┘ │
+│          │                 │                      │             │
+│          └─────────────────┼──────────────────────┘             │
+│                            │                                    │
+│                    ┌───────▼───────┐                           │
+│                    │   Shared API  │                           │
+│                    │   (Fastify)   │                           │
+│                    │               │                           │
+│                    │  - Auth       │                           │
+│                    │  - Learning   │                           │
+│                    │  - AI/Chat    │                           │
+│                    │  - Billing    │                           │
+│                    │  - Admin      │                           │
+│                    └───────┬───────┘                           │
+│                            │                                    │
+│                    ┌───────▼───────┐                           │
+│                    │   Supabase    │                           │
+│                    │   (Postgres)  │                           │
+│                    └───────────────┘                           │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘`}</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section stack">
+      <div class="container">
+        <h2>Technology Stack</h2>
+        
+        <div class="stack-section">
+          <h3>Frontend Applications</h3>
+          <div class="stack-table">
+            <div class="stack-header">
+              <span>Service</span>
+              <span>Framework</span>
+              <span>UI Libraries</span>
+              <span>Key Features</span>
+            </div>
+            {frontendStack.map((item) => (
+              <div class="stack-row">
+                <span class="stack-service">{item.service}</span>
+                <span>{item.framework}</span>
+                <span>{item.ui}</span>
+                <span>{item.features}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="stack-section">
+          <h3>Backend Infrastructure</h3>
+          <div class="stack-table backend">
+            <div class="stack-header">
+              <span>Component</span>
+              <span>Technology</span>
+              <span>Purpose</span>
+            </div>
+            {backendStack.map((item) => (
+              <div class="stack-row">
+                <span class="stack-service">{item.component}</span>
+                <span>{item.technology}</span>
+                <span>{item.purpose}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="shared-tech">
+          <h3>Shared Technologies</h3>
+          <div class="tech-grid">
+            <div class="tech-item">
+              <strong>TypeScript</strong>
+              <span>End-to-end type safety across all services</span>
+            </div>
+            <div class="tech-item">
+              <strong>Zod</strong>
+              <span>Runtime schema validation for API contracts</span>
+            </div>
+            <div class="tech-item">
+              <strong>JWT</strong>
+              <span>Secure authentication with refresh token rotation</span>
+            </div>
+            <div class="tech-item">
+              <strong>Pino</strong>
+              <span>Structured logging with pretty-print for development</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section features">
+      <div class="container">
+        <h2>Core Features Delivered</h2>
+
+        <div class="feature-block">
+          <div class="feature-number">01</div>
+          <div class="feature-content">
+            <h3>AI-Powered Learning Experience</h3>
+            <p>The platform's AI capabilities span multiple features:</p>
+            
+            <div class="sub-feature">
+              <h4>AI Tutor Chat</h4>
+              <ul>
+                <li>Multi-provider architecture with automatic fallback (Gemini → Groq → OpenRouter)</li>
+                <li>Context-aware responses using lesson content and learner experience level</li>
+                <li>Content guardrails ensuring on-topic, educational responses</li>
+                <li>Per-user rate limiting to prevent abuse</li>
+              </ul>
+            </div>
+
+            <div class="sub-feature">
+              <h4>AI Quiz Generation</h4>
+              <ul>
+                <li>Dynamic quiz creation from any technology topic</li>
+                <li>Configurable difficulty levels (beginner/intermediate/advanced)</li>
+                <li>Structured JSON output for consistent rendering</li>
+              </ul>
+            </div>
+
+            <div class="sub-feature">
+              <h4>AI Content Summarization</h4>
+              <ul>
+                <li>Multiple summary styles: brief, detailed, bullet-points</li>
+                <li>Topic validation ensuring technology-related content</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-block">
+          <div class="feature-number">02</div>
+          <div class="feature-content">
+            <h3>Structured Learning Paths</h3>
+            <ul>
+              <li><strong>Skills Taxonomy</strong> — Hierarchical organization of technology topics</li>
+              <li><strong>Learning Paths</strong> — Curated sequences of courses and lessons</li>
+              <li><strong>Courses</strong> — Grouped lessons with progression tracking</li>
+              <li><strong>Lessons</strong> — Individual learning units with rich content (TipTap editor)</li>
+              <li><strong>Quizzes</strong> — Knowledge validation with explanations</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="feature-block">
+          <div class="feature-number">03</div>
+          <div class="feature-content">
+            <h3>Accountability & Engagement</h3>
+            <ul>
+              <li><strong>Streak Tracking</strong> — Daily learning streaks to build habits</li>
+              <li><strong>Focus Sessions</strong> — Pomodoro-style focused learning with statistics</li>
+              <li><strong>Progress Dashboards</strong> — Visual progress tracking across skills and paths</li>
+              <li><strong>Notifications</strong> — Push and in-app notifications for reminders</li>
+              <li><strong>Daily Plans</strong> — Personalized "today's learning" recommendations</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="feature-block">
+          <div class="feature-number">04</div>
+          <div class="feature-content">
+            <h3>Onboarding & Personalization</h3>
+            <ul>
+              <li><strong>Multi-step Onboarding</strong> — Goal setting, experience level, time commitment</li>
+              <li><strong>Personalized Paths</strong> — AI-generated learning recommendations based on goals</li>
+              <li><strong>Adaptive Content</strong> — Difficulty adjusted to learner's demonstrated level</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="feature-block">
+          <div class="feature-number">05</div>
+          <div class="feature-content">
+            <h3>Subscription & Billing</h3>
+            <ul>
+              <li><strong>Tiered Plans</strong> — Free, Pro, and Premium tiers with feature gating</li>
+              <li><strong>Flexible Billing</strong> — Monthly and annual subscription options</li>
+              <li><strong>Secure Payments</strong> — Encrypted payment configuration with adapter pattern</li>
+              <li><strong>Plan Enforcement</strong> — Middleware for feature-level access control</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="feature-block">
+          <div class="feature-number">06</div>
+          <div class="feature-content">
+            <h3>Administrative Dashboard</h3>
+            
+            <div class="admin-grid">
+              <div class="admin-section">
+                <h4>User Management</h4>
+                <ul>
+                  <li>User search, filtering, and detailed profiles</li>
+                  <li>Activity monitoring and engagement metrics</li>
+                  <li>Bulk email and broadcast notifications</li>
+                </ul>
+              </div>
+
+              <div class="admin-section">
+                <h4>Content Management</h4>
+                <ul>
+                  <li>Full CRUD for skills, courses, lessons, and learning paths</li>
+                  <li>Rich text lesson editor with code highlighting</li>
+                  <li>Quiz builder with multiple question types</li>
+                  <li>Content preview and publishing workflow</li>
+                </ul>
+              </div>
+
+              <div class="admin-section">
+                <h4>Analytics & Monitoring</h4>
+                <ul>
+                  <li>Platform KPIs: total users, active learners, completion rates</li>
+                  <li>Popular skills and learning paths</li>
+                  <li>Recent learner activity feed</li>
+                  <li>Request monitoring and system health</li>
+                </ul>
+              </div>
+
+              <div class="admin-section">
+                <h4>Event Management</h4>
+                <ul>
+                  <li>Tech events and community events scheduling</li>
+                  <li>Registration tracking</li>
+                  <li>Live session and recording management</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-block">
+          <div class="feature-number">07</div>
+          <div class="feature-content">
+            <h3>Waitlist & Marketing</h3>
+            <ul>
+              <li><strong>Landing Page</strong> — Responsive, theme-aware marketing site</li>
+              <li><strong>Waitlist Signup</strong> — Email collection with duplicate detection</li>
+              <li><strong>Impression Tracking</strong> — Analytics for marketing effectiveness</li>
+              <li><strong>Dark/Light Mode</strong> — System-preference-aware theming</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section technical">
+      <div class="container">
+        <h2>Technical Highlights</h2>
+
+        <div class="highlight-block">
+          <h3>API Architecture</h3>
+          <p>The API follows a modular, domain-driven design:</p>
+          
+          <div class="code-block">
+            <pre>{`src/
+├── admin/          # Admin-specific routes and logic
+├── ai/             # AI provider abstraction and routes
+├── auth/           # Authentication (email, Google OAuth)
+├── billing/        # Subscription management
+├── events/         # Community and tech events
+├── focus/          # Focus session tracking
+├── learning/       # Courses, lessons, paths, quizzes, skills
+├── monitoring/     # Request logging and system metrics
+├── notifications/  # Push and in-app notifications
+├── onboarding/     # User onboarding flow
+├── shared/         # Plugins, middleware, utilities
+└── user/           # User profile and preferences`}</pre>
+          </div>
+
+          <p>Each domain module is self-contained with:</p>
+          <ul>
+            <li>Route definitions with Zod schema validation</li>
+            <li>Type definitions for request/response contracts</li>
+            <li>Business logic isolated from HTTP handling</li>
+          </ul>
+        </div>
+
+        <div class="highlight-block">
+          <h3>Authentication & Authorization</h3>
+          <ul>
+            <li><strong>JWT-based Auth</strong> with access and refresh tokens</li>
+            <li><strong>Google OAuth</strong> integration for social login</li>
+            <li><strong>Role-Based Access Control</strong> — User vs Admin permissions</li>
+            <li><strong>Plan-Based Gating</strong> — Feature access tied to subscription tier</li>
+          </ul>
+        </div>
+
+        <div class="highlight-block">
+          <h3>AI Provider Abstraction</h3>
+          <div class="code-block">
+            <pre>{`// Fallback chain configuration
+AI_FALLBACK_CHAIN: 'gemini,groq,openrouter'
+
+// Each provider implements a common interface:
+interface AIProvider {
+  name: string
+  complete(options: CompletionOptions): Promise<CompletionResult>
+  assistantChat(options: AssistantOptions): Promise<AssistantResult>
+}`}</pre>
+          </div>
+        </div>
+
+        <div class="highlight-block">
+          <h3>Deployment Pipeline</h3>
+          <p>Automated CI/CD with GitHub Actions:</p>
+          <ol>
+            <li>Code push triggers build</li>
+            <li>Docker image built via Cloud Build</li>
+            <li>Image pushed to Artifact Registry</li>
+            <li>Cloud Run service updated with zero-downtime deployment</li>
+            <li>Environment variables injected from secrets</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section results">
+      <div class="container">
+        <h2>Results & Impact</h2>
+        
+        <div class="results-grid">
+          <div class="result-category">
+            <h3>Platform Capabilities</h3>
+            <ul>
+              <li><strong>5 integrated services</strong> working as a cohesive platform</li>
+              <li><strong>20+ API endpoint groups</strong> covering all learning domain needs</li>
+              <li><strong>3 AI providers</strong> with intelligent fallback for reliability</li>
+              <li><strong>Real-time features</strong> via Supabase subscriptions</li>
+              <li><strong>Mobile-responsive</strong> interfaces across all applications</li>
+            </ul>
+          </div>
+
+          <div class="result-category">
+            <h3>Developer Experience</h3>
+            <ul>
+              <li><strong>Full TypeScript</strong> — Catch errors at compile time</li>
+              <li><strong>Shared API contracts</strong> — Zod schemas used in both backend and frontend</li>
+              <li><strong>Hot module reload</strong> — Fast development iteration</li>
+              <li><strong>Structured logging</strong> — Easy debugging with Pino pretty-print</li>
+            </ul>
+          </div>
+
+          <div class="result-category">
+            <h3>Scalability</h3>
+            <ul>
+              <li><strong>Serverless deployment</strong> — Auto-scaling with Cloud Run</li>
+              <li><strong>Stateless API</strong> — Horizontal scaling ready</li>
+              <li><strong>Database connection pooling</strong> — Supabase handles connection management</li>
+              <li><strong>Rate limiting</strong> — Protection against abuse at API and AI layers</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section capabilities-summary">
+      <div class="container">
+        <h2>Capabilities at a Glance</h2>
+        <div class="capabilities-grid">
+          {capabilities.map((cap) => (
+            <div class="capability-card">
+              <span class="capability-value">{cap.value}</span>
+              <span class="capability-label">{cap.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="case-section conclusion">
+      <div class="container">
+        <h2>Conclusion</h2>
+        <div class="content-block">
+          <p>
+            Finishi demonstrates Chelon Labs' capability to deliver complex, multi-service platforms 
+            that combine modern frontend frameworks, robust API architecture, AI integration, and 
+            cloud-native deployment. The project showcases expertise in:
+          </p>
+          <ul class="expertise-list">
+            <li>Full-Stack TypeScript Development</li>
+            <li>AI Integration & Multi-Provider Strategies</li>
+            <li>Cloud-Native Architecture (GCP)</li>
+            <li>EdTech Domain Experience</li>
+            <li>Modern React Ecosystem (Vite, Tailwind, Radix)</li>
+            <li>API Design with Fastify & Zod</li>
+          </ul>
+          <p>
+            The platform is positioned to scale with user growth while maintaining the personalized, 
+            AI-powered learning experience that sets Finishi apart in the EdTech space.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="case-cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Building an AI-powered product?</h2>
+          <p>
+            Chelon Labs helps companies build multi-service platforms with AI integration, 
+            cloud-native architecture, and modern frontend frameworks.
+          </p>
+          <a href="/#contact" class="btn btn-primary">Discuss your project</a>
+        </div>
+      </div>
+    </section>
+  </article>
+</BaseLayout>
+
+<style>
+  .case-study {
+    background: var(--color-bg);
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Header */
+  .case-header {
+    padding: 10rem 0 4rem;
+    background: var(--color-bg-dark);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--color-primary);
+  }
+
+  .case-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.75rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+    border: 1px solid rgba(99, 102, 241, 0.25);
+    border-radius: 4px;
+    color: var(--color-primary-light);
+  }
+
+  .case-header h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: var(--color-text);
+    line-height: 1.2;
+    margin-bottom: 2rem;
+  }
+
+  .case-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .info-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+  }
+
+  .info-value {
+    font-size: 1rem;
+    color: var(--color-text);
+  }
+
+  /* Sections */
+  .case-section {
+    padding: 4rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .case-section h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+  }
+
+  .case-section h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+  }
+
+  .case-section h3:first-of-type {
+    margin-top: 0;
+  }
+
+  .content-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .content-block p {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+  }
+
+  .content-block strong {
+    color: var(--color-text);
+  }
+
+  /* Challenge cards */
+  .challenge-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .challenge-card {
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-left: 3px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+
+  .challenge-card h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .challenge-card p {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  /* Architecture diagram */
+  .architecture-diagram {
+    background: var(--color-bg-dark);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+  }
+
+  .architecture-diagram pre {
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+    font-size: 0.7rem;
+    line-height: 1.5;
+    color: var(--color-text-muted);
+    margin: 0;
+    white-space: pre;
+  }
+
+  /* Stack tables */
+  .stack-section {
+    margin-bottom: 2rem;
+  }
+
+  .stack-table {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .stack-header {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1.5fr 2fr;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--color-bg-dark);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+  }
+
+  .stack-table.backend .stack-header {
+    grid-template-columns: 1fr 1.5fr 2fr;
+  }
+
+  .stack-row {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr 1.5fr 2fr;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--color-bg-card);
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+  }
+
+  .stack-table.backend .stack-row {
+    grid-template-columns: 1fr 1.5fr 2fr;
+  }
+
+  .stack-service {
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  /* Shared tech */
+  .shared-tech {
+    margin-top: 2rem;
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .tech-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 1rem;
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+  }
+
+  .tech-item strong {
+    color: var(--color-text);
+    font-size: 0.95rem;
+  }
+
+  .tech-item span {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+  }
+
+  /* Features */
+  .feature-block {
+    display: flex;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  }
+
+  .feature-block:last-child {
+    border-bottom: none;
+  }
+
+  .feature-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    background: rgba(99, 102, 241, 0.1);
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    height: fit-content;
+    flex-shrink: 0;
+  }
+
+  .feature-content {
+    flex: 1;
+  }
+
+  .feature-content h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .feature-content p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .feature-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .feature-content ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+  }
+
+  .feature-content ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary);
+    border-radius: 50%;
+  }
+
+  .feature-content ul li strong {
+    color: var(--color-text);
+  }
+
+  /* Sub features */
+  .sub-feature {
+    margin: 1.5rem 0;
+    padding: 1.25rem;
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+  }
+
+  .sub-feature h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .sub-feature ul {
+    margin: 0;
+  }
+
+  .sub-feature ul li {
+    font-size: 0.875rem;
+  }
+
+  /* Admin grid */
+  .admin-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .admin-section {
+    padding: 1.25rem;
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+  }
+
+  .admin-section h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .admin-section ul {
+    margin: 0;
+  }
+
+  .admin-section ul li {
+    font-size: 0.85rem;
+    padding-left: 1.25rem;
+  }
+
+  .admin-section ul li::before {
+    top: 0.6rem;
+    width: 5px;
+    height: 5px;
+  }
+
+  /* Technical highlights */
+  .highlight-block {
+    margin-bottom: 2.5rem;
+  }
+
+  .highlight-block:last-child {
+    margin-bottom: 0;
+  }
+
+  .highlight-block h3 {
+    margin-top: 0;
+  }
+
+  .highlight-block p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+
+  .highlight-block ul,
+  .highlight-block ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .highlight-block ul li,
+  .highlight-block ol li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+  }
+
+  .highlight-block ul li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.7rem;
+    width: 6px;
+    height: 6px;
+    background: var(--color-primary);
+    border-radius: 50%;
+  }
+
+  .highlight-block ol {
+    counter-reset: step;
+  }
+
+  .highlight-block ol li::before {
+    counter-increment: step;
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    width: 18px;
+    height: 18px;
+    background: rgba(99, 102, 241, 0.1);
+    border-radius: 50%;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .highlight-block ul li strong,
+  .highlight-block ol li strong {
+    color: var(--color-text);
+  }
+
+  .code-block {
+    background: var(--color-bg-dark);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+  }
+
+  .code-block pre {
+    font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+    margin: 0;
+    white-space: pre;
+  }
+
+  /* Results */
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .result-category {
+    padding: 1.5rem;
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+  }
+
+  .result-category h3 {
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .result-category ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .result-category ul li {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 0.5rem;
+  }
+
+  .result-category ul li strong {
+    color: var(--color-text);
+  }
+
+  /* Capabilities */
+  .capabilities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .capability-card {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+  }
+
+  .capability-value {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .capability-label {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Conclusion */
+  .expertise-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .expertise-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  .expertise-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55rem;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-light));
+    border-radius: 2px;
+  }
+
+  /* CTA */
+  .case-cta {
+    padding: 6rem 0;
+    background: var(--color-bg-dark);
+    border-bottom: none;
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(99, 102, 241, 0.4);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .results-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .capabilities-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .case-header {
+      padding: 8rem 0 3rem;
+    }
+
+    .case-section {
+      padding: 3rem 0;
+    }
+
+    .challenge-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .stack-table {
+      overflow-x: auto;
+    }
+
+    .stack-header,
+    .stack-row {
+      min-width: 600px;
+    }
+
+    .tech-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .feature-block {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .admin-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .expertise-list {
+      grid-template-columns: 1fr;
+    }
+
+    .case-info {
+      gap: 1rem;
+    }
+  }
+</style>

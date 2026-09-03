@@ -1,4 +1,12 @@
 ---
+const metrics = [
+  { value: "₦106M+", label: "Monthly transaction volume" },
+  { value: "7,500+", label: "Monthly transactions" },
+  { value: "6", label: "Payment providers integrated" },
+  { value: "763K+", label: "Monthly API calls" },
+  { value: "40%", label: "Response time reduction" },
+  { value: "25%", label: "Cloud cost reduction" },
+];
 ---
 
 <section class="hero">
@@ -11,34 +19,45 @@
   <div class="hero-content container">
     <div class="hero-badge">
       <span class="badge-dot"></span>
-      Backend Engineering & Fintech Specialists
+      Production Fintech Experience
     </div>
     
     <h1 class="hero-title">
-      We Build <span class="gradient-text">Business-Critical Software</span> That Scales
+      Backend Engineering for <span class="gradient-text">Fintech & Growing Tech Companies</span>
     </h1>
     
     <p class="hero-subtitle">
-      We design, build, integrate, and secure software that helps organizations 
-      automate operations, connect systems, and scale with confidence. 
-      From fintech infrastructure to enterprise integrations.
+      We build payment systems, financial integrations, APIs, and cloud infrastructure 
+      for products where reliability, security, and scale matter.
     </p>
     
     <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary">Start a Conversation</a>
-      <a href="#services" class="btn btn-secondary">Explore Services</a>
+      <a href="#contact" class="btn btn-primary">Discuss a Project</a>
+      <a href="/work" class="btn btn-secondary">See Our Work</a>
     </div>
 
     <div class="hero-capabilities">
-      <span class="capability">Backend Systems</span>
+      <span class="capability">Payment Systems</span>
       <span class="divider">/</span>
-      <span class="capability">Fintech</span>
+      <span class="capability">Financial APIs</span>
       <span class="divider">/</span>
-      <span class="capability">API Integrations</span>
+      <span class="capability">Backend Infrastructure</span>
       <span class="divider">/</span>
-      <span class="capability">Security</span>
-      <span class="divider">/</span>
-      <span class="capability">DevOps</span>
+      <span class="capability">Cloud & DevOps</span>
+    </div>
+  </div>
+
+  <div class="proof-section container">
+    <div class="proof-header">
+      <span class="proof-label">Built on real production experience</span>
+    </div>
+    <div class="metrics-grid">
+      {metrics.map((metric) => (
+        <div class="metric-item">
+          <span class="metric-value">{metric.value}</span>
+          <span class="metric-label">{metric.label}</span>
+        </div>
+      ))}
     </div>
   </div>
 </section>
@@ -216,6 +235,63 @@
     color: rgba(255, 255, 255, 0.2);
   }
 
+  .proof-section {
+    margin-top: 4rem;
+    padding-top: 3rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .proof-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .proof-label {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+  }
+
+  .metric-item {
+    text-align: center;
+    padding: 1rem 0.5rem;
+  }
+
+  .metric-value {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #f4f4f5, #a1a1aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .metric-label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    line-height: 1.4;
+  }
+
+  @media (max-width: 1024px) {
+    .metrics-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+  }
+
   @media (max-width: 768px) {
     .hero {
       padding: 6rem 1rem 3rem;
@@ -238,6 +314,28 @@
       background: rgba(255, 255, 255, 0.03);
       border-radius: 20px;
       font-size: 0.8rem;
+    }
+
+    .proof-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+    }
+
+    .metrics-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+    }
+
+    .metric-item {
+      padding: 0.75rem 0.25rem;
+    }
+
+    .metric-value {
+      font-size: 1.25rem;
+    }
+
+    .metric-label {
+      font-size: 0.7rem;
     }
   }
 </style>

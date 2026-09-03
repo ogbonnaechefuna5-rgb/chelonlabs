@@ -3,76 +3,34 @@ const services = [
   {
     id: "backend",
     title: "Backend Engineering",
-    tag: "Core Offering",
-    description: "High-performance backend systems built for scale. REST APIs, microservices, database optimization, and robust architecture.",
-    items: ["Custom REST APIs", "Microservices Architecture", "PHP (Spiral/Laravel)", "Database Design", "Auth Systems", "Queue & Caching"]
+    tag: "Core",
+    description: "APIs that handle your current traffic and won't break when you scale. We design backend systems that are reliable, secure, and maintainable.",
+    items: ["REST & gRPC APIs", "Microservices Architecture", "Database Design & Optimization", "Authentication & Authorization", "Queue Systems & Caching", "Transaction Processing"]
   },
   {
     id: "fintech",
-    title: "Fintech Development",
-    tag: "Premium",
-    description: "End-to-end fintech infrastructure. Payment systems, wallet platforms, bank integrations, and regulatory compliance.",
-    items: ["Payment Gateways", "Virtual Accounts", "Wallet Infrastructure", "AML/KYC Integration", "Settlement Engines", "Reconciliation"]
+    title: "Payment & Fintech Systems",
+    tag: "Specialty",
+    description: "Payment infrastructure that processes transactions reliably across multiple providers. From payment flows to settlement and reconciliation.",
+    items: ["Payment Gateway Integration", "Multi-Provider Routing", "Virtual Accounts & Wallets", "Settlement & Reconciliation", "AML/KYC Integration", "Transaction Monitoring"]
   },
   {
     id: "integrations",
-    title: "API Integrations",
-    description: "Connect your systems to banks, payment providers, government APIs, ERPs, and third-party services.",
-    items: ["Banking APIs", "Payment APIs", "Government APIs", "ERP/CRM Integration", "Identity Verification", "Webhook Systems"]
+    title: "API & Integration Engineering",
+    description: "Connect your systems to banks, payment providers, and third-party services without building fragile point-to-point connections.",
+    items: ["Banking & Payment APIs", "Identity Verification", "Financial Data Providers", "Webhook Infrastructure", "Provider Abstraction Layers", "Error Handling & Retries"]
   },
   {
-    id: "business-systems",
-    title: "Internal Business Systems",
-    description: "Custom software that replaces spreadsheets. Inventory, HR, payroll, and operations management built for your workflow.",
-    items: ["Inventory Management", "HR & Payroll", "School/Clinic Systems", "Warehouse Management", "Procurement", "Document Management"]
-  },
-  {
-    id: "ai",
-    title: "AI Integration",
-    description: "Practical AI that saves employee time. Document processing, workflow automation, and intelligent search.",
-    items: ["AI Document Processing", "OCR Workflows", "AI Customer Support", "Workflow Automation", "Knowledge Bases", "AI Search & Agents"]
-  },
-  {
-    id: "automation",
-    title: "Process Automation",
-    description: "Eliminate repetitive manual work. Approval flows, invoice processing, onboarding, and scheduled operations.",
-    items: ["Approval Workflows", "Invoice Automation", "Employee Onboarding", "Report Generation", "Data Sync", "Scheduled Jobs"]
-  },
-  {
-    id: "security",
-    title: "Security Consulting",
-    description: "Application security expertise. API reviews, penetration testing, secure SDLC, and OWASP assessments.",
-    items: ["API Security Reviews", "Penetration Testing", "Security Audits", "Threat Modeling", "Auth Review", "OWASP Assessments"]
-  },
-  {
-    id: "devops",
-    title: "DevOps & Deployment",
-    description: "Infrastructure that runs smoothly. Containerization, CI/CD, cloud deployments, and performance monitoring.",
-    items: ["Docker & Kubernetes", "CI/CD Pipelines", "Cloud Deployments", "Nginx & Proxy Setup", "SSL & Security", "Monitoring"]
-  },
-  {
-    id: "consulting",
-    title: "Technical Consulting",
-    description: "Strategic guidance before code. MVP architecture, technology selection, scalability planning, and system redesign.",
-    items: ["MVP Architecture", "Tech Stack Selection", "Scalability Planning", "Product Discovery", "Legacy Modernization", "System Redesign"]
-  },
-  {
-    id: "products",
-    title: "Product Development",
-    description: "Full-stack product engineering. React applications, mobile apps, admin dashboards, and SaaS platforms.",
-    items: ["React Applications", "React Native Apps", "Admin Dashboards", "Customer Portals", "SaaS Products", "Enterprise Software"]
-  },
-  {
-    id: "mobile",
-    title: "Mobile App Development",
-    description: "Native and cross-platform mobile apps. iOS, Android, and React Native solutions for business and consumer applications.",
-    items: ["iOS Apps", "Android Apps", "React Native", "App Store Deployment", "Push Notifications", "Offline Support"]
+    id: "infrastructure",
+    title: "Cloud & Infrastructure",
+    description: "The infrastructure that keeps your systems running. Deployment, scaling, monitoring, and the DevOps practices that make operations predictable.",
+    items: ["Docker & Kubernetes", "CI/CD Pipelines", "Cloud Deployment (AWS, GCP)", "Monitoring & Observability", "Performance Optimization", "Cost Management"]
   },
   {
     id: "modernization",
-    title: "Software Modernization",
-    description: "Breathe new life into legacy systems. Migration, API modernization, and architecture refactoring.",
-    items: ["Legacy Migration", "API Modernization", "Database Migration", "Performance Tuning", "Cloud Migration", "Refactoring"]
+    title: "Backend Modernization",
+    description: "Migrate legacy systems, reduce technical debt, and improve performance without breaking what works.",
+    items: ["Legacy System Migration", "API Modernization", "Database Migration", "Performance Tuning", "Architecture Refactoring", "Technical Debt Reduction"]
   }
 ];
 ---
@@ -83,7 +41,7 @@ const services = [
       <span class="section-label">What We Do</span>
       <h2 class="section-title">Engineering Services</h2>
       <p class="section-subtitle">
-        Specialized expertise across the full software lifecycle — from architecture to deployment
+        We focus on backend systems, APIs, and infrastructure — the technical foundation that everything else depends on.
       </p>
     </div>
 
@@ -143,7 +101,7 @@ const services = [
   .section-subtitle {
     font-size: 1.125rem;
     color: var(--color-text-muted);
-    max-width: 600px;
+    max-width: 650px;
     margin: 0 auto;
   }
 

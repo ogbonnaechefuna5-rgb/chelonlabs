@@ -1,0 +1,446 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const projects = [
+  {
+    slug: "fintech-payment-infrastructure",
+    title: "Payment Infrastructure & Merchant Platform for a Nigerian Fintech",
+    role: "Backend Developer",
+    type: "Production System",
+    description: "Backend systems supporting ₦106M+ in monthly transaction volume. Built merchant applications, centralized authentication across distributed services, and financial integrations.",
+    metrics: [
+      { value: "₦106M+", label: "Monthly volume" },
+      { value: "7,500+", label: "Transactions" },
+      { value: "6", label: "Providers integrated" },
+      { value: "40%", label: "Response time reduction" }
+    ],
+    tags: ["Payment Systems", "Distributed Systems", "Merchant Applications", "Financial Integrations"],
+    featured: true,
+    hasPage: true
+  },
+  {
+    slug: "finishi-technologies",
+    title: "Finishi Technologies",
+    role: "CTO & Co-founder",
+    type: "Active Development",
+    description: "AI-powered microlearning platform. Full technical ownership from architecture to deployment.",
+    metrics: [
+      { value: "5", label: "Integrated services" },
+      { value: "20+", label: "API endpoint groups" },
+      { value: "3", label: "AI providers" }
+    ],
+    tags: ["Full-Stack Development", "AI Integration", "Cloud-Native", "EdTech"],
+    featured: true,
+    hasPage: true
+  },
+  {
+    slug: "monite",
+    title: "Monite",
+    role: "Founder & Developer",
+    type: "Personal Project",
+    description: "Personal finance intelligence platform with open banking integration for iOS and Android.",
+    metrics: [
+      { value: "React Native", label: "Mobile" },
+      { value: "Go/Fiber", label: "Backend" },
+      { value: "Open Banking", label: "Integration" }
+    ],
+    tags: ["Mobile Development", "Open Banking", "Financial APIs", "Go"],
+    featured: false,
+    hasPage: false
+  }
+];
+
+const featuredProjects = projects.filter(p => p.featured);
+const otherProjects = projects.filter(p => !p.featured);
+---
+
+<BaseLayout title="Work | Chelon Labs" description="Selected engineering projects: payment infrastructure, fintech systems, and backend development.">
+  <section class="work-hero">
+    <div class="container">
+      <span class="section-label">Selected Work</span>
+      <h1 class="page-title">Engineering Projects</h1>
+      <p class="page-subtitle">
+        A selection of backend systems, payment infrastructure, and technical projects 
+        built in production environments.
+      </p>
+    </div>
+  </section>
+
+  <section class="projects-section">
+    <div class="container">
+      <div class="projects-grid">
+        {featuredProjects.map((project) => (
+          <article class="project-card featured">
+            <div class="project-header">
+              <div class="project-meta">
+                <span class="project-type">{project.type}</span>
+                <span class="project-role">{project.role}</span>
+              </div>
+              <h2 class="project-title">{project.title}</h2>
+              <p class="project-description">{project.description}</p>
+            </div>
+
+            <div class="project-metrics">
+              {project.metrics.map((metric) => (
+                <div class="metric">
+                  <span class="metric-value">{metric.value}</span>
+                  <span class="metric-label">{metric.label}</span>
+                </div>
+              ))}
+            </div>
+
+            <div class="project-tags">
+              {project.tags.map((tag) => (
+                <span class="tag">{tag}</span>
+              ))}
+            </div>
+
+            <div class="project-cta">
+              {project.hasPage ? (
+                <a href={`/work/${project.slug}`} class="view-case-study">
+                  View case study
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+              ) : (
+                <span class="coming-soon">Case study coming soon</span>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+
+      {otherProjects.length > 0 && (
+        <div class="other-projects">
+          <h3 class="other-title">Other Projects</h3>
+          <div class="other-grid">
+            {otherProjects.map((project) => (
+              <article class="project-card-small">
+                <div class="project-meta">
+                  <span class="project-type">{project.type}</span>
+                </div>
+                <h3 class="project-title">{project.title}</h3>
+                <p class="project-description">{project.description}</p>
+                <div class="project-tags">
+                  {project.tags.slice(0, 3).map((tag) => (
+                    <span class="tag">{tag}</span>
+                  ))}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="work-cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Have a backend problem worth solving?</h2>
+        <p>Tell us about your project and we'll discuss how we can help.</p>
+        <a href="/#contact" class="btn btn-primary">Discuss a Project</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .work-hero {
+    padding: 10rem 2rem 4rem;
+    background: var(--color-bg);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .page-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    max-width: 600px;
+    line-height: 1.7;
+  }
+
+  .projects-section {
+    padding: 2rem 2rem 6rem;
+    background: var(--color-bg);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .project-card {
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    transition: all 0.3s ease;
+  }
+
+  .project-card:hover {
+    border-color: rgba(99, 102, 241, 0.3);
+    transform: translateY(-4px);
+  }
+
+  .project-card.featured {
+    border-left: 3px solid var(--color-primary);
+  }
+
+  .project-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .project-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .project-type {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.75rem;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
+    border: 1px solid rgba(99, 102, 241, 0.3);
+    border-radius: 4px;
+    color: var(--color-primary-light);
+  }
+
+  .project-role {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .project-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .project-description {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+  }
+
+  .project-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+  }
+
+  .metric {
+    text-align: center;
+  }
+
+  .metric-value {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+  }
+
+  .metric-label {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    color: var(--color-text-muted);
+  }
+
+  .project-cta {
+    margin-top: auto;
+  }
+
+  .coming-soon {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  .view-case-study {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .view-case-study:hover {
+    gap: 0.75rem;
+  }
+
+  .view-case-study svg {
+    transition: transform 0.2s;
+  }
+
+  .view-case-study:hover svg {
+    transform: translateX(4px);
+  }
+
+  .other-projects {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 3rem;
+  }
+
+  .other-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+  }
+
+  .other-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card-small {
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .project-card-small .project-title {
+    font-size: 1.1rem;
+  }
+
+  .project-card-small .project-description {
+    font-size: 0.9rem;
+  }
+
+  .work-cta {
+    padding: 6rem 2rem;
+    background: var(--color-bg-dark);
+  }
+
+  .cta-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+  }
+
+  .cta-content p {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(99, 102, 241, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .work-hero {
+      padding: 8rem 1rem 3rem;
+    }
+
+    .projects-section {
+      padding: 1rem 1rem 4rem;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project-card {
+      padding: 1.5rem;
+    }
+
+    .project-metrics {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .other-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .work-cta {
+      padding: 4rem 1rem;
+    }
+  }
+</style>

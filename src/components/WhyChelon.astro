@@ -1,0 +1,225 @@
+---
+const reasons = [
+  {
+    title: "Production Experience",
+    description: "Not theoretical architecture. Real systems processing real transactions in production fintech environments.",
+    icon: "server"
+  },
+  {
+    title: "Integration Expertise",
+    description: "Payments, banking APIs, identity verification, and third-party systems. We know where the edge cases and failure modes live.",
+    icon: "link"
+  },
+  {
+    title: "Direct Senior Engineering",
+    description: "No layers of account managers between you and the engineer. You work directly with the people building your system.",
+    icon: "user"
+  }
+];
+
+const helpScenarios = [
+  "Your backend is becoming a bottleneck",
+  "You need multiple payment providers integrated",
+  "Your system has accumulated technical debt",
+  "You're launching a transaction-heavy product",
+  "Your engineering team needs additional backend capacity",
+  "Your infrastructure needs to become more reliable"
+];
+
+const icons: Record<string, string> = {
+  server: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>`,
+  link: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`,
+  user: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`
+};
+---
+
+<section id="why-chelon" class="why-chelon">
+  <div class="container">
+    <div class="why-grid">
+      <div class="why-content">
+        <span class="section-label">Why Chelon Labs</span>
+        <h2 class="section-title">A different kind of engineering partner</h2>
+        
+        <div class="reasons-list">
+          {reasons.map((reason) => (
+            <div class="reason-item">
+              <div class="reason-icon" set:html={icons[reason.icon]} />
+              <div class="reason-text">
+                <h3>{reason.title}</h3>
+                <p>{reason.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="help-scenarios">
+        <div class="scenarios-card">
+          <h3 class="scenarios-title">We typically help when...</h3>
+          <ul class="scenarios-list">
+            {helpScenarios.map((scenario) => (
+              <li>
+                <span class="check-icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                {scenario}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .why-chelon {
+    padding: 6rem 2rem;
+    background: var(--color-bg);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 2.5rem;
+    line-height: 1.2;
+  }
+
+  .reasons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .reason-item {
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .reason-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+    border-radius: 12px;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .reason-text h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .reason-text p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .scenarios-card {
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 2rem;
+  }
+
+  .scenarios-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+  }
+
+  .scenarios-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .scenarios-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    border-left: 2px solid var(--color-primary);
+    transition: all 0.2s ease;
+  }
+
+  .scenarios-list li:hover {
+    background: rgba(99, 102, 241, 0.05);
+  }
+
+  .check-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 900px) {
+    .why-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .why-chelon {
+      padding: 3rem 1rem;
+    }
+
+    .reason-item {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .scenarios-card {
+      padding: 1.5rem;
+    }
+
+    .scenarios-list li {
+      padding: 0.625rem 0.875rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>
