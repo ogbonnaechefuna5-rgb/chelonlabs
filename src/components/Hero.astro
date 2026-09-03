@@ -67,8 +67,9 @@ const metrics = [
     position: relative;
     min-height: 100vh;
     display: flex;
-    align-items: center;
-    padding: 8rem 2rem 4rem;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 1rem 3rem;
     overflow: hidden;
   }
 
@@ -81,24 +82,24 @@ const metrics = [
   .gradient-orb {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.5;
+    filter: blur(60px);
+    opacity: 0.4;
   }
 
   .orb-1 {
-    width: 600px;
-    height: 600px;
+    width: 300px;
+    height: 300px;
     background: radial-gradient(circle, rgba(99, 102, 241, 0.4), transparent 70%);
-    top: -200px;
-    right: -100px;
+    top: -100px;
+    right: -50px;
   }
 
   .orb-2 {
-    width: 400px;
-    height: 400px;
+    width: 200px;
+    height: 200px;
     background: radial-gradient(circle, rgba(139, 92, 246, 0.3), transparent 70%);
-    bottom: -100px;
-    left: -100px;
+    bottom: -50px;
+    left: -50px;
   }
 
   .grid-pattern {
@@ -107,7 +108,7 @@ const metrics = [
     background-image: 
       linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
       linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-    background-size: 60px 60px;
+    background-size: 40px 40px;
   }
 
   .hero-content {
@@ -122,18 +123,18 @@ const metrics = [
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.4rem 0.875rem;
     background: rgba(99, 102, 241, 0.1);
     border: 1px solid rgba(99, 102, 241, 0.2);
     border-radius: 50px;
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: var(--color-primary);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
   }
 
   .badge-dot {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     background: var(--color-primary);
     border-radius: 50%;
     animation: pulse 2s infinite;
@@ -146,10 +147,10 @@ const metrics = [
 
   .hero-title {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-size: 1.75rem;
     font-weight: 700;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
     color: var(--color-text);
   }
 
@@ -168,10 +169,10 @@ const metrics = [
   }
 
   .hero-subtitle {
-    font-size: 1.2rem;
+    font-size: 0.95rem;
     color: var(--color-text-muted);
-    line-height: 1.8;
-    margin-bottom: 2.5rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
@@ -179,20 +180,23 @@ const metrics = [
 
   .hero-cta {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 4rem;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+    padding: 0 1rem;
   }
 
   .btn {
     display: inline-flex;
     align-items: center;
-    padding: 0.875rem 2rem;
+    justify-content: center;
+    padding: 0.875rem 1.5rem;
     border-radius: 10px;
     font-weight: 600;
+    font-size: 0.95rem;
     text-decoration: none;
     transition: all 0.2s;
+    width: 100%;
   }
 
   .btn-primary {
@@ -221,33 +225,38 @@ const metrics = [
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     flex-wrap: wrap;
   }
 
   .capability {
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     color: var(--color-text-muted);
     font-weight: 500;
+    padding: 0.3rem 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 20px;
   }
 
   .divider {
-    color: rgba(255, 255, 255, 0.2);
+    display: none;
   }
 
   .proof-section {
-    margin-top: 4rem;
-    padding-top: 3rem;
+    position: relative;
+    z-index: 1;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .proof-header {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .proof-label {
-    font-size: 0.875rem;
+    font-size: 0.7rem;
     font-weight: 500;
     color: var(--color-text-muted);
     text-transform: uppercase;
@@ -256,22 +265,22 @@ const metrics = [
 
   .metrics-grid {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
 
   .metric-item {
     text-align: center;
-    padding: 1rem 0.5rem;
+    padding: 0.75rem 0.25rem;
   }
 
   .metric-value {
     display: block;
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: 1.25rem;
     font-weight: 700;
     color: var(--color-text);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.35rem;
     background: linear-gradient(135deg, #f4f4f5, #a1a1aa);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -280,62 +289,169 @@ const metrics = [
 
   .metric-label {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     color: var(--color-text-muted);
     line-height: 1.4;
   }
 
-  @media (max-width: 1024px) {
+  /* Tablet and up */
+  @media (min-width: 640px) {
+    .hero {
+      padding: 7rem 1.5rem 4rem;
+    }
+
+    .hero-badge {
+      font-size: 0.8rem;
+      padding: 0.5rem 1rem;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+
+    .hero-cta {
+      flex-direction: row;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .btn {
+      width: auto;
+      padding: 0.875rem 2rem;
+    }
+
+    .capability {
+      font-size: 0.85rem;
+      padding: 0;
+      background: none;
+    }
+
+    .divider {
+      display: inline;
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    .hero-capabilities {
+      gap: 1rem;
+    }
+
     .metrics-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
     }
-  }
-
-  @media (max-width: 768px) {
-    .hero {
-      padding: 6rem 1rem 3rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-    }
-
-    .hero-capabilities {
-      gap: 0.5rem;
-    }
-
-    .divider {
-      display: none;
-    }
-
-    .capability {
-      padding: 0.25rem 0.75rem;
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 20px;
-      font-size: 0.8rem;
-    }
-
-    .proof-section {
-      margin-top: 3rem;
-      padding-top: 2rem;
-    }
-
-    .metrics-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 0.75rem;
-    }
-
-    .metric-item {
-      padding: 0.75rem 0.25rem;
-    }
 
     .metric-value {
-      font-size: 1.25rem;
+      font-size: 1.5rem;
     }
 
     .metric-label {
       font-size: 0.7rem;
+    }
+
+    .proof-label {
+      font-size: 0.8rem;
+    }
+  }
+
+  /* Desktop */
+  @media (min-width: 1024px) {
+    .hero {
+      padding: 8rem 2rem 4rem;
+    }
+
+    .gradient-orb {
+      filter: blur(80px);
+      opacity: 0.5;
+    }
+
+    .orb-1 {
+      width: 600px;
+      height: 600px;
+      top: -200px;
+      right: -100px;
+    }
+
+    .orb-2 {
+      width: 400px;
+      height: 400px;
+      bottom: -100px;
+      left: -100px;
+    }
+
+    .grid-pattern {
+      background-size: 60px 60px;
+    }
+
+    .hero-badge {
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta {
+      gap: 1rem;
+      margin-bottom: 4rem;
+    }
+
+    .capability {
+      font-size: 0.9rem;
+    }
+
+    .proof-section {
+      margin-top: 4rem;
+      padding-top: 3rem;
+    }
+
+    .proof-header {
+      margin-bottom: 2rem;
+    }
+
+    .proof-label {
+      font-size: 0.875rem;
+    }
+
+    .metrics-grid {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 1.5rem;
+    }
+
+    .metric-item {
+      padding: 1rem 0.5rem;
+    }
+
+    .metric-value {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .metric-label {
+      font-size: 0.75rem;
+    }
+  }
+
+  /* Large desktop */
+  @media (min-width: 1280px) {
+    .hero-title {
+      font-size: 4rem;
     }
   }
 </style>
