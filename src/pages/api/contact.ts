@@ -48,7 +48,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Send notification email to Chelon Labs
     const { data, error } = await resend.emails.send({
-      from: 'Chelon Labs <contact@chelonlabs.com>',
+      from: 'Chelon Labs <contact@mail.chelonlabs.com>',
       to: ['hello@chelonlabs.com'],
       replyTo: email,
       subject: `New Contact Form Submission from ${name}`,
@@ -193,7 +193,7 @@ Reply directly to this email to respond to ${name}.
     // Send confirmation email to the sender
     const firstName = name.split(' ')[0];
     await resend.emails.send({
-      from: 'Chelon Labs <contact@chelonlabs.com>',
+      from: 'Chelon Labs <contact@mail.chelonlabs.com>',
       to: [email],
       subject: `We received your message, ${firstName}`,
       html: `
