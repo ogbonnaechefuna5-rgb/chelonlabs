@@ -1,9 +1,21 @@
 ---
-const techStack = [
-  "Java", "Go", "Node.js", "PHP/Spiral", "NestJS", "Fastify",
-  "PostgreSQL", "Redis", "MongoDB",
-  "Docker", "Kubernetes", "AWS", "GCP",
-  "React", "React Native", "TypeScript"
+const techCategories = [
+  {
+    category: "Backend",
+    technologies: ["Java", "Go", "Node.js", "PHP/Spiral"]
+  },
+  {
+    category: "Data",
+    technologies: ["PostgreSQL", "Redis", "MongoDB"]
+  },
+  {
+    category: "Infrastructure",
+    technologies: ["Docker", "Kubernetes", "AWS", "GCP"]
+  },
+  {
+    category: "Applications",
+    technologies: ["React", "React Native", "TypeScript"]
+  }
 ];
 
 const linkedinUrl = "https://www.linkedin.com/in/ogbonna-echefunachukwu-76a100231/";
@@ -60,9 +72,17 @@ const linkedinUrl = "https://www.linkedin.com/in/ogbonna-echefunachukwu-76a10023
       <div class="about-sidebar">
         <div class="tech-card">
           <h3 class="card-title">Technology Stack</h3>
-          <div class="tech-grid">
-            {techStack.map((tech) => (
-              <span class="tech-tag">{tech}</span>
+          <p class="card-subtitle">Technologies are secondary to outcomes — but here's what we work with:</p>
+          <div class="tech-categories">
+            {techCategories.map((cat) => (
+              <div class="tech-category">
+                <span class="category-label">{cat.category}</span>
+                <div class="category-techs">
+                  {cat.technologies.map((tech) => (
+                    <span class="tech-tag">{tech}</span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
@@ -246,21 +266,48 @@ const linkedinUrl = "https://www.linkedin.com/in/ogbonna-echefunachukwu-76a10023
     font-size: 1rem;
     font-weight: 600;
     color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .card-subtitle {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
     margin-bottom: 1.25rem;
   }
 
-  .tech-grid {
+  .tech-categories {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .tech-category {
+    display: flex;
+    flex-direction: column;
     gap: 0.5rem;
   }
 
+  .category-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .category-techs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
   .tech-tag {
-    padding: 0.35rem 0.75rem;
+    padding: 0.3rem 0.65rem;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 6px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--color-text-muted);
   }
 

@@ -1,29 +1,29 @@
 ---
 const reasons = [
   {
-    title: "Production Experience",
-    description: "Not theoretical architecture. Real systems processing real transactions in production fintech environments.",
+    title: "Production Experience, Not Theory",
+    description: "Systems processing ₦106M+ monthly. 6 payment providers integrated. 40% faster response times. These aren't projections — they're results from real fintech infrastructure.",
     icon: "server"
   },
   {
     title: "Integration Expertise",
-    description: "Payments, banking APIs, identity verification, and third-party systems. We know where the edge cases and failure modes live.",
+    description: "Payments, banking APIs, identity verification, webhooks. We know where the edge cases live and how providers actually behave under load.",
     icon: "link"
   },
   {
-    title: "Direct Senior Engineering",
-    description: "No layers of account managers between you and the engineer. You work directly with the people building your system.",
+    title: "Senior Engineering, Direct Access",
+    description: "No layers of account managers. No handoffs to junior developers. You work directly with the engineer building your system.",
     icon: "user"
   }
 ];
 
 const helpScenarios = [
-  "Your backend is becoming a bottleneck",
-  "You need multiple payment providers integrated",
-  "Your system has accumulated technical debt",
+  "Your backend is becoming a bottleneck as traffic grows",
+  "You need multiple payment providers integrated reliably",
+  "Technical debt is slowing down your engineering team",
   "You're launching a transaction-heavy product",
-  "Your engineering team needs additional backend capacity",
-  "Your infrastructure needs to become more reliable"
+  "Your team needs senior backend capacity without a full hire",
+  "Cloud costs are growing faster than your revenue"
 ];
 
 const icons: Record<string, string> = {
@@ -35,17 +35,25 @@ const icons: Record<string, string> = {
 
 <section id="why-chelon" class="why-chelon">
   <div class="container">
+    <div class="positioning-statement">
+      <h2 class="statement-headline">When your product outgrows its backend, call Chelon Labs.</h2>
+      <p class="statement-subtext">
+        We're not a general agency that happens to do backend work. We're backend engineers 
+        who solve the specific problems that appear when products start scaling.
+      </p>
+    </div>
+
     <div class="why-grid">
       <div class="why-content">
         <span class="section-label">Why Chelon Labs</span>
-        <h2 class="section-title">A different kind of engineering partner</h2>
+        <h3 class="section-title">The engineering team you bring in when the backend becomes complicated</h3>
         
         <div class="reasons-list">
           {reasons.map((reason) => (
             <div class="reason-item">
               <div class="reason-icon" set:html={icons[reason.icon]} />
               <div class="reason-text">
-                <h3>{reason.title}</h3>
+                <h4>{reason.title}</h4>
                 <p>{reason.description}</p>
               </div>
             </div>
@@ -66,6 +74,9 @@ const icons: Record<string, string> = {
               </li>
             ))}
           </ul>
+          <div class="scenarios-cta">
+            <a href="#contact" class="scenarios-link">Sound familiar? Let's talk →</a>
+          </div>
         </div>
       </div>
     </div>
@@ -81,6 +92,30 @@ const icons: Record<string, string> = {
   .container {
     max-width: 1200px;
     margin: 0 auto;
+  }
+
+  .positioning-statement {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding-bottom: 4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .statement-headline {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .statement-subtext {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
   }
 
   .why-grid {
@@ -102,11 +137,11 @@ const icons: Record<string, string> = {
 
   .section-title {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+    font-size: clamp(1.5rem, 3vw, 1.75rem);
     font-weight: 700;
     color: var(--color-text);
     margin-bottom: 2.5rem;
-    line-height: 1.2;
+    line-height: 1.3;
   }
 
   .reasons-list {
@@ -133,7 +168,7 @@ const icons: Record<string, string> = {
     flex-shrink: 0;
   }
 
-  .reason-text h3 {
+  .reason-text h4 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1.1rem;
     font-weight: 600;
@@ -144,7 +179,7 @@ const icons: Record<string, string> = {
   .reason-text p {
     font-size: 0.95rem;
     color: var(--color-text-muted);
-    line-height: 1.6;
+    line-height: 1.7;
   }
 
   .scenarios-card {
@@ -173,7 +208,7 @@ const icons: Record<string, string> = {
 
   .scenarios-list li {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.875rem;
     font-size: 0.95rem;
     color: var(--color-text);
@@ -182,6 +217,7 @@ const icons: Record<string, string> = {
     border-radius: 10px;
     border-left: 2px solid var(--color-primary);
     transition: all 0.2s ease;
+    line-height: 1.5;
   }
 
   .scenarios-list li:hover {
@@ -194,12 +230,38 @@ const icons: Record<string, string> = {
     justify-content: center;
     color: var(--color-primary);
     flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .scenarios-cta {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .scenarios-link {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .scenarios-link:hover {
+    opacity: 0.8;
   }
 
   @media (max-width: 900px) {
     .why-grid {
       grid-template-columns: 1fr;
       gap: 3rem;
+    }
+
+    .positioning-statement {
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
     }
   }
 

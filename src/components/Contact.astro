@@ -1,10 +1,11 @@
 ---
 const engagementTypes = [
-  { value: "project", label: "Project-Based Development" },
-  { value: "consulting", label: "Technical Consulting" },
-  { value: "retainer", label: "Ongoing Retainer" },
-  { value: "assessment", label: "Security Assessment" },
-  { value: "other", label: "Other" }
+  { value: "build", label: "Build — New backend system or API" },
+  { value: "integrate", label: "Integrate — Payment/third-party connections" },
+  { value: "fix", label: "Fix — Performance, tech debt, modernization" },
+  { value: "scale", label: "Scale — Infrastructure and DevOps" },
+  { value: "fractional", label: "Fractional — Ongoing engineering capacity" },
+  { value: "other", label: "Something else" }
 ];
 ---
 
@@ -12,33 +13,42 @@ const engagementTypes = [
   <div class="container">
     <div class="contact-grid">
       <div class="contact-info">
-        <span class="section-label">Get In Touch</span>
-        <h2 class="section-title">Let's Discuss Your Project</h2>
+        <span class="section-label">Talk to an Engineer</span>
+        <h2 class="section-title">Have a backend problem worth solving?</h2>
         <p class="contact-text">
-          Whether you need a complete system built, an existing platform improved, 
-          or strategic technical guidance — we're here to help. Tell us about your 
-          challenge and we'll respond within 24 hours.
+          Tell us what's slowing your product down. We'll review the problem 
+          and tell you what we'd recommend — no commitment, no sales pitch.
         </p>
         
-        <div class="engagement-info">
-          <h3>How We Work</h3>
-          <ul class="work-list">
+        <div class="what-happens">
+          <h3>What happens next</h3>
+          <ul class="steps-list">
             <li>
-              <strong>Discovery Call</strong>
-              <span>Understand your requirements, timeline, and constraints</span>
+              <span class="step-number">1</span>
+              <div>
+                <strong>You describe the problem</strong>
+                <span>Backend bottleneck, integration challenge, scaling issue — whatever it is</span>
+              </div>
             </li>
             <li>
-              <strong>Proposal & Scope</strong>
-              <span>Detailed technical approach with clear deliverables</span>
+              <span class="step-number">2</span>
+              <div>
+                <strong>We review and respond within 24 hours</strong>
+                <span>Initial thoughts on approach, timeline, and whether we're the right fit</span>
+              </div>
             </li>
             <li>
-              <strong>Build & Iterate</strong>
-              <span>Regular updates, transparent progress, quality code</span>
+              <span class="step-number">3</span>
+              <div>
+                <strong>Discovery call (if it makes sense)</strong>
+                <span>Dig into requirements, architecture, and constraints together</span>
+              </div>
             </li>
           </ul>
         </div>
 
         <div class="contact-methods">
+          <p class="methods-label">Prefer email?</p>
           <a href="mailto:hello@chelonlabs.com" class="contact-method">
             <span class="method-icon">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -67,19 +77,20 @@ const engagementTypes = [
           <input type="email" id="email" name="email" required placeholder="you@company.com" />
         </div>
         <div class="form-group">
-          <label for="engagement">Engagement Type</label>
+          <label for="engagement">What do you need help with?</label>
           <select id="engagement" name="engagement">
-            <option value="">Select engagement type</option>
+            <option value="">Select the type of work</option>
             {engagementTypes.map((type) => (
               <option value={type.value}>{type.label}</option>
             ))}
           </select>
         </div>
         <div class="form-group">
-          <label for="message">Project Details</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project, timeline, and any specific requirements..."></textarea>
+          <label for="message">Tell us about the problem</label>
+          <textarea id="message" name="message" rows="5" required placeholder="What's the backend or infrastructure challenge you're facing? Include any relevant context: current stack, scale, timeline, budget range (optional)."></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Send Message</button>
+        <p class="form-note">We respond to every inquiry within 24 hours.</p>
       </form>
     </div>
   </div>
@@ -122,17 +133,17 @@ const engagementTypes = [
   }
 
   .contact-text {
-    font-size: 1rem;
+    font-size: 1.05rem;
     color: var(--color-text-muted);
     line-height: 1.7;
     margin-bottom: 2rem;
   }
 
-  .engagement-info {
+  .what-happens {
     margin-bottom: 2rem;
   }
 
-  .engagement-info h3 {
+  .what-happens h3 {
     font-family: 'Space Grotesk', sans-serif;
     font-size: 1rem;
     font-weight: 600;
@@ -140,39 +151,62 @@ const engagementTypes = [
     margin-bottom: 1rem;
   }
 
-  .work-list {
+  .steps-list {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
   }
 
-  .work-list li {
+  .steps-list li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: rgba(99, 102, 241, 0.15);
+    border-radius: 50%;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    flex-shrink: 0;
+  }
+
+  .steps-list li div {
     display: flex;
     flex-direction: column;
-    padding: 0.75rem 1rem;
-    background: rgba(255, 255, 255, 0.02);
-    border-radius: 8px;
-    border-left: 2px solid var(--color-primary);
+    gap: 0.15rem;
   }
 
-  .work-list li strong {
-    font-size: 0.9rem;
+  .steps-list li strong {
+    font-size: 0.95rem;
     color: var(--color-text);
-    margin-bottom: 0.15rem;
   }
 
-  .work-list li span {
-    font-size: 0.8rem;
+  .steps-list li span {
+    font-size: 0.85rem;
     color: var(--color-text-muted);
+    line-height: 1.5;
   }
 
   .contact-methods {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .methods-label {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
   }
 
   .contact-method {
@@ -284,6 +318,13 @@ const engagementTypes = [
   .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 30px rgba(99, 102, 241, 0.4);
+  }
+
+  .form-note {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    text-align: center;
   }
 
   @media (max-width: 900px) {

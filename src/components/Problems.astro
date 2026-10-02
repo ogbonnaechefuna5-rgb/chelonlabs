@@ -1,0 +1,212 @@
+---
+const problems = [
+  {
+    icon: "slow",
+    title: "Slow APIs",
+    description: "Response times creeping up as traffic grows. Database queries that used to be fast are now bottlenecks."
+  },
+  {
+    icon: "payment",
+    title: "Payment failures",
+    description: "Transactions dropping, provider outages causing revenue loss, no fallback when things go wrong."
+  },
+  {
+    icon: "integration",
+    title: "Fragile integrations",
+    description: "Third-party APIs breaking unexpectedly. Webhook handlers that miss events. No retry logic."
+  },
+  {
+    icon: "debt",
+    title: "Technical debt",
+    description: "Code that's hard to change. Features that take weeks instead of days. Engineers afraid to touch certain parts."
+  },
+  {
+    icon: "cost",
+    title: "Growing cloud costs",
+    description: "Infrastructure bills climbing faster than revenue. Resources running inefficiently. No visibility into what's costing what."
+  },
+  {
+    icon: "scale",
+    title: "Scaling anxiety",
+    description: "Not sure if the system will handle the next traffic spike. No load testing. Hoping nothing breaks."
+  }
+];
+
+const icons: Record<string, string> = {
+  slow: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+  payment: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>`,
+  integration: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/><line x1="2" x2="6" y1="2" y2="6"/><line x1="18" x2="22" y1="18" y2="22"/></svg>`,
+  debt: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/><path d="m15 5 3 3"/></svg>`,
+  cost: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>`,
+  scale: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg>`
+};
+---
+
+<section id="problems" class="problems">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">Sound Familiar?</span>
+      <h2 class="section-title">Your product is growing. Your backend is showing it.</h2>
+      <p class="section-subtitle">
+        These are the problems that start appearing when products move from early traction to real scale. 
+        If any of these sound familiar, we can help.
+      </p>
+    </div>
+
+    <div class="problems-grid">
+      {problems.map((problem) => (
+        <div class="problem-card">
+          <div class="problem-icon" set:html={icons[problem.icon]} />
+          <h3 class="problem-title">{problem.title}</h3>
+          <p class="problem-description">{problem.description}</p>
+        </div>
+      ))}
+    </div>
+
+    <div class="problems-cta">
+      <p>Dealing with one of these? Let's figure out what's actually causing it.</p>
+      <a href="#contact" class="cta-link">Talk to an engineer →</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .problems {
+    padding: 6rem 2rem;
+    background: var(--color-bg-dark);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+    max-width: 650px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  .problems-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .problem-card {
+    background: var(--color-bg-card);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+  }
+
+  .problem-card:hover {
+    border-color: rgba(239, 68, 68, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .problem-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 10px;
+    color: #ef4444;
+    margin-bottom: 1rem;
+  }
+
+  .problem-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+
+  .problem-description {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
+
+  .problems-cta {
+    margin-top: 3rem;
+    text-align: center;
+    padding: 2rem;
+    background: rgba(99, 102, 241, 0.05);
+    border: 1px solid rgba(99, 102, 241, 0.1);
+    border-radius: 16px;
+  }
+
+  .problems-cta p {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-link {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .cta-link:hover {
+    opacity: 0.8;
+  }
+
+  @media (max-width: 900px) {
+    .problems-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .problems {
+      padding: 3rem 1rem;
+    }
+
+    .problems-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .problem-card {
+      padding: 1.25rem;
+    }
+
+    .problems-cta {
+      padding: 1.5rem;
+    }
+  }
+</style>

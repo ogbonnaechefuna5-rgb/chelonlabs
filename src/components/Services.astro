@@ -1,56 +1,69 @@
 ---
 const services = [
   {
-    id: "backend",
-    title: "Backend Engineering",
-    tag: "Core",
-    description: "APIs that handle your current traffic and won't break when you scale. We design backend systems that are reliable, secure, and maintainable.",
-    items: ["REST & gRPC APIs", "Microservices Architecture", "Database Design & Optimization", "Authentication & Authorization", "Queue Systems & Caching", "Transaction Processing"]
+    id: "build",
+    title: "Build",
+    subtitle: "New backend systems",
+    icon: "build",
+    description: "APIs, transaction systems, databases, authentication, background processing. We build the backend infrastructure that powers your product.",
+    items: ["REST & gRPC APIs", "Transaction Processing", "Database Design", "Authentication & Authorization", "Queue Systems & Caching", "Microservices Architecture"],
+    examples: "New product backends, payment systems, data pipelines"
   },
   {
-    id: "fintech",
-    title: "Payment & Fintech Systems",
-    tag: "Specialty",
-    description: "Payment infrastructure that processes transactions reliably across multiple providers. From payment flows to settlement and reconciliation.",
-    items: ["Payment Gateway Integration", "Multi-Provider Routing", "Virtual Accounts & Wallets", "Settlement & Reconciliation", "AML/KYC Integration", "Transaction Monitoring"]
+    id: "integrate",
+    title: "Integrate",
+    subtitle: "Connect your systems",
+    icon: "integrate",
+    description: "Payments, banking, KYC, identity, third-party APIs, webhooks. We connect your product to the external services it needs to work.",
+    items: ["Payment Gateway Integration", "Banking & Financial APIs", "Identity Verification (KYC)", "Webhook Infrastructure", "Provider Abstraction Layers", "Multi-Provider Routing"],
+    examples: "Payment providers, open banking, identity services"
   },
   {
-    id: "integrations",
-    title: "API & Integration Engineering",
-    description: "Connect your systems to banks, payment providers, and third-party services without building fragile point-to-point connections.",
-    items: ["Banking & Payment APIs", "Identity Verification", "Financial Data Providers", "Webhook Infrastructure", "Provider Abstraction Layers", "Error Handling & Retries"]
+    id: "fix",
+    title: "Fix",
+    subtitle: "Repair and modernize",
+    icon: "fix",
+    description: "Performance problems, technical debt, architecture issues, migrations. We fix existing systems without breaking what works.",
+    items: ["Performance Tuning", "Technical Debt Reduction", "Legacy System Migration", "Database Migration", "API Modernization", "Architecture Refactoring"],
+    examples: "Slow APIs, scaling problems, outdated architecture"
   },
   {
-    id: "infrastructure",
-    title: "Cloud & Infrastructure",
-    description: "The infrastructure that keeps your systems running. Deployment, scaling, monitoring, and the DevOps practices that make operations predictable.",
-    items: ["Docker & Kubernetes", "CI/CD Pipelines", "Cloud Deployment (AWS, GCP)", "Monitoring & Observability", "Performance Optimization", "Cost Management"]
-  },
-  {
-    id: "modernization",
-    title: "Backend Modernization",
-    description: "Migrate legacy systems, reduce technical debt, and improve performance without breaking what works.",
-    items: ["Legacy System Migration", "API Modernization", "Database Migration", "Performance Tuning", "Architecture Refactoring", "Technical Debt Reduction"]
+    id: "scale",
+    title: "Scale",
+    subtitle: "Make infrastructure reliable",
+    icon: "scale",
+    description: "Cloud deployment, CI/CD, observability, performance and cost optimization. We make your production infrastructure predictable.",
+    items: ["Docker & Kubernetes", "CI/CD Pipelines", "Cloud Deployment (AWS, GCP)", "Monitoring & Observability", "Performance Optimization", "Cost Management"],
+    examples: "Cloud migrations, DevOps setup, cost reduction"
   }
 ];
+
+const icons: Record<string, string> = {
+  build: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="m6.41 6.41-2.83 2.83"/><path d="M2 12h4"/><path d="m6.41 17.59-2.83-2.83"/><path d="m17.59 6.41 2.83 2.83"/><path d="M22 12h-4"/><path d="m17.59 17.59 2.83-2.83"/><path d="M12 22v-4"/><circle cx="12" cy="12" r="4"/></svg>`,
+  integrate: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>`,
+  fix: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>`,
+  scale: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7"/><rect x="14" y="14" width="8" height="8" rx="1"/><path d="M18 14v4"/><path d="M14 18h4"/></svg>`
+};
 ---
 
 <section id="services" class="services">
   <div class="container">
     <div class="section-header">
-      <span class="section-label">What We Do</span>
-      <h2 class="section-title">Engineering Services</h2>
+      <span class="section-label">How We Help</span>
+      <h2 class="section-title">Build · Integrate · Fix · Scale</h2>
       <p class="section-subtitle">
-        We focus on backend systems, APIs, and infrastructure — the technical foundation that everything else depends on.
+        Four ways we solve backend problems for growing companies. 
+        Each engagement starts with understanding what's actually slowing your product down.
       </p>
     </div>
 
     <div class="services-grid">
       {services.map((service) => (
         <div class="service-card" id={service.id}>
+          <div class="service-icon" set:html={icons[service.icon]} />
           <div class="service-header">
             <h3 class="service-title">{service.title}</h3>
-            {service.tag && <span class="service-tag">{service.tag}</span>}
+            <span class="service-subtitle">{service.subtitle}</span>
           </div>
           <p class="service-description">{service.description}</p>
           <ul class="service-items">
@@ -58,6 +71,10 @@ const services = [
               <li>{item}</li>
             ))}
           </ul>
+          <div class="service-examples">
+            <span class="examples-label">Common projects:</span>
+            <span class="examples-text">{service.examples}</span>
+          </div>
         </div>
       ))}
     </div>
@@ -103,11 +120,12 @@ const services = [
     color: var(--color-text-muted);
     max-width: 650px;
     margin: 0 auto;
+    line-height: 1.7;
   }
 
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
 
@@ -115,8 +133,10 @@ const services = [
     background: var(--color-bg-card);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 16px;
-    padding: 1.75rem;
+    padding: 2rem;
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
   }
 
   .service-card:hover {
@@ -125,37 +145,42 @@ const services = [
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   }
 
-  .service-header {
+  .service-icon {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(139, 92, 246, 0.15));
+    border-radius: 12px;
+    color: var(--color-primary);
+    margin-bottom: 1.25rem;
+  }
+
+  .service-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
     margin-bottom: 0.75rem;
-    flex-wrap: wrap;
   }
 
   .service-title {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--color-text);
   }
 
-  .service-tag {
-    font-size: 0.7rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.25rem 0.6rem;
-    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.2));
-    border: 1px solid rgba(99, 102, 241, 0.3);
-    border-radius: 4px;
-    color: var(--color-primary-light);
+  .service-subtitle {
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    font-weight: 500;
   }
 
   .service-description {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: var(--color-text-muted);
-    line-height: 1.6;
+    line-height: 1.7;
     margin-bottom: 1.25rem;
   }
 
@@ -165,7 +190,7 @@ const services = [
     gap: 0.5rem;
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 0 1.25rem 0;
   }
 
   .service-items li {
@@ -177,13 +202,42 @@ const services = [
     border-radius: 6px;
   }
 
+  .service-examples {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .examples-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .examples-text {
+    font-size: 0.85rem;
+    color: var(--color-text);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 900px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   @media (max-width: 768px) {
     .services {
       padding: 3rem 1rem;
     }
 
-    .services-grid {
-      grid-template-columns: 1fr;
+    .service-card {
+      padding: 1.5rem;
     }
   }
 </style>

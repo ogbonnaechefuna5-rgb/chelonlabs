@@ -1,11 +1,10 @@
 ---
 const metrics = [
   { value: "₦106M+", label: "Monthly transaction volume" },
-  { value: "7,500+", label: "Monthly transactions" },
+  { value: "763K+", label: "API requests processed" },
   { value: "6", label: "Payment providers integrated" },
-  { value: "763K+", label: "Monthly API calls" },
-  { value: "40%", label: "Response time reduction" },
-  { value: "25%", label: "Cloud cost reduction" },
+  { value: "40%", label: "Faster response times" },
+  { value: "25%", label: "Lower cloud costs" },
 ];
 ---
 
@@ -19,20 +18,20 @@ const metrics = [
   <div class="hero-content container">
     <div class="hero-badge">
       <span class="badge-dot"></span>
-      Production Fintech Experience
+      Production Systems. Measurable Outcomes.
     </div>
     
     <h1 class="hero-title">
-      Backend Engineering for <span class="gradient-text">Fintech & Growing Tech Companies</span>
+      Backend engineering for products that <span class="gradient-text">can't afford unreliable infrastructure</span>
     </h1>
     
     <p class="hero-subtitle">
-      We build payment systems, financial integrations, APIs, and cloud infrastructure 
-      for products where reliability, security, and scale matter.
+      Payments. APIs. Integrations. Infrastructure. We help growing companies 
+      solve the backend problems that become expensive as products scale.
     </p>
     
     <div class="hero-cta">
-      <a href="#contact" class="btn btn-primary">Discuss a Project</a>
+      <a href="#contact" class="btn btn-primary">Talk to an Engineer</a>
       <a href="/work" class="btn btn-secondary">See Our Work</a>
     </div>
 
@@ -49,7 +48,8 @@ const metrics = [
 
   <div class="proof-section container">
     <div class="proof-header">
-      <span class="proof-label">Built on real production experience</span>
+      <span class="proof-label">Founder production experience</span>
+      <p class="proof-subtext">Before Chelon Labs, our founder built fintech infrastructure at scale</p>
     </div>
     <div class="metrics-grid">
       {metrics.map((metric) => (
@@ -58,6 +58,10 @@ const metrics = [
           <span class="metric-label">{metric.label}</span>
         </div>
       ))}
+    </div>
+    <div class="proof-cta">
+      <p>Need someone to solve a backend or integration problem like this?</p>
+      <a href="#contact" class="proof-link">Talk to an engineer →</a>
     </div>
   </div>
 </section>
@@ -257,10 +261,39 @@ const metrics = [
 
   .proof-label {
     font-size: 0.7rem;
-    font-weight: 500;
-    color: var(--color-text-muted);
+    font-weight: 600;
+    color: var(--color-primary);
     text-transform: uppercase;
     letter-spacing: 0.1em;
+  }
+
+  .proof-subtext {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+  }
+
+  .proof-cta {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+
+  .proof-cta p {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .proof-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .proof-link:hover {
+    opacity: 0.8;
   }
 
   .metrics-grid {
@@ -360,6 +393,18 @@ const metrics = [
     .proof-label {
       font-size: 0.8rem;
     }
+
+    .proof-subtext {
+      font-size: 0.9rem;
+    }
+
+    .proof-cta p {
+      font-size: 0.95rem;
+    }
+
+    .proof-link {
+      font-size: 0.95rem;
+    }
   }
 
   /* Desktop */
@@ -429,8 +474,24 @@ const metrics = [
       font-size: 0.875rem;
     }
 
+    .proof-subtext {
+      font-size: 1rem;
+    }
+
+    .proof-cta {
+      margin-top: 2rem;
+    }
+
+    .proof-cta p {
+      font-size: 1rem;
+    }
+
+    .proof-link {
+      font-size: 1rem;
+    }
+
     .metrics-grid {
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 1.5rem;
     }
 
