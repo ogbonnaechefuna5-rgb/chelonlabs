@@ -53,16 +53,126 @@ export const POST: APIRoute = async ({ request }) => {
       replyTo: email,
       subject: `New Contact Form Submission from ${name}`,
       html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
-        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
-        <p><strong>Company:</strong> ${escapeHtml(company) || 'Not provided'}</p>
-        <p><strong>Engagement Type:</strong> ${escapeHtml(engagementDisplay)}</p>
-        <h3>Message:</h3>
-        <p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body style="margin: 0; padding: 0; background-color: #0a0a0f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color: #0a0a0f;">
+    <tr>
+      <td align="center" style="padding: 40px 20px;">
+        <table role="presentation" width="600" cellspacing="0" cellpadding="0" style="max-width: 600px; width: 100%;">
+          
+          <!-- Header -->
+          <tr>
+            <td style="padding-bottom: 32px;">
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>
+                    <span style="font-size: 24px; font-weight: 700; color: #ffffff;">Chelon</span>
+                    <span style="font-size: 24px; font-weight: 700; color: #6366f1;">Labs</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          
+          <!-- Main Card -->
+          <tr>
+            <td style="background: linear-gradient(180deg, #1a1a24 0%, #12121a 100%); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 32px;">
+              
+              <!-- Title -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td style="padding-bottom: 24px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
+                    <p style="margin: 0 0 8px 0; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: #6366f1;">New Inquiry</p>
+                    <h1 style="margin: 0; font-size: 24px; font-weight: 700; color: #ffffff;">Contact Form Submission</h1>
+                  </td>
+                </tr>
+              </table>
+              
+              <!-- Contact Details -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-top: 24px;">
+                
+                <!-- Name -->
+                <tr>
+                  <td style="padding: 16px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                    <p style="margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #888894;">Name</p>
+                    <p style="margin: 0; font-size: 16px; color: #ffffff;">${escapeHtml(name)}</p>
+                  </td>
+                </tr>
+                
+                <!-- Email -->
+                <tr>
+                  <td style="padding: 16px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                    <p style="margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #888894;">Email</p>
+                    <p style="margin: 0; font-size: 16px;">
+                      <a href="mailto:${escapeHtml(email)}" style="color: #6366f1; text-decoration: none;">${escapeHtml(email)}</a>
+                    </p>
+                  </td>
+                </tr>
+                
+                <!-- Company -->
+                <tr>
+                  <td style="padding: 16px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                    <p style="margin: 0 0 4px 0; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #888894;">Company</p>
+                    <p style="margin: 0; font-size: 16px; color: #ffffff;">${escapeHtml(company) || '<span style="color: #888894;">Not provided</span>'}</p>
+                  </td>
+                </tr>
+                
+                <!-- Engagement Type -->
+                <tr>
+                  <td style="padding: 16px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+                    <p style="margin: 0 0 8px 0; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #888894;">Engagement Type</p>
+                    <p style="margin: 0;">
+                      <span style="display: inline-block; padding: 6px 14px; background: rgba(99, 102, 241, 0.15); border-radius: 6px; font-size: 14px; font-weight: 500; color: #6366f1;">${escapeHtml(engagementDisplay)}</span>
+                    </p>
+                  </td>
+                </tr>
+                
+                <!-- Message -->
+                <tr>
+                  <td style="padding: 16px 0;">
+                    <p style="margin: 0 0 12px 0; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #888894;">Message</p>
+                    <div style="padding: 16px; background: rgba(255, 255, 255, 0.03); border-radius: 8px; border-left: 3px solid #6366f1;">
+                      <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #e0e0e6; white-space: pre-wrap;">${escapeHtml(message)}</p>
+                    </div>
+                  </td>
+                </tr>
+                
+              </table>
+              
+              <!-- Reply Button -->
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin-top: 24px;">
+                <tr>
+                  <td align="center">
+                    <a href="mailto:${escapeHtml(email)}" style="display: inline-block; padding: 14px 32px; background: linear-gradient(135deg, #6366f1, #8b5cf6); border-radius: 8px; font-size: 15px; font-weight: 600; color: #ffffff; text-decoration: none;">Reply to ${escapeHtml(name.split(' ')[0])}</a>
+                  </td>
+                </tr>
+              </table>
+              
+            </td>
+          </tr>
+          
+          <!-- Footer -->
+          <tr>
+            <td style="padding-top: 32px; text-align: center;">
+              <p style="margin: 0; font-size: 13px; color: #888894;">Received from contact form at chelonlabs.com</p>
+            </td>
+          </tr>
+          
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
       `,
       text: `
-New Contact Form Submission
+NEW CONTACT FORM SUBMISSION
+===========================
 
 Name: ${name}
 Email: ${email}
@@ -70,7 +180,11 @@ Company: ${company || 'Not provided'}
 Engagement Type: ${engagementDisplay}
 
 Message:
+---------
 ${message}
+
+---
+Reply directly to this email to respond to ${name}.
       `.trim(),
     });
 
